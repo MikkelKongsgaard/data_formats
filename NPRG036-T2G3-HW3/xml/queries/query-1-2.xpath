@@ -1,4 +1,2 @@
-(: List the titles of research projects at a faculty that has at least one teacher has the given name "Petr" :)
-//faculty[teachers/teacher[givenName='Petr']]/researchProjects/researchProject/title
-
-
+(:retrieves menu of canteens with a capacity greater than 100 :)
+/universities/canteens/canteen[capacity > 100]/menu 

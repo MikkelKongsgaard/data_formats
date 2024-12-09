@@ -1,2 +1,2 @@
-(:all teacher at faculties with more than 400 students :)
-//faculty[numberOfStudents > 400]/teachers/teacher/concat(givenName, ' ', familyName)
+(:names of students enrolled in faculty3:)
+/universities/students/student[enrolledIn = 'faculty3']/givenName

@@ -2,95 +2,166 @@
 @prefix ex: <http://example.org/university#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
+
+    
     ex:uni1 a ex:University ;
-        ex:universityName "Charles University"@en ;
-        ex:numberOfFaculties 2 ;
-        ex:numberOfTeachers 200 ; 
-        ex:email <mailto:mailto:info@cuni.cz>  ;
-        ex:email <mailto:mailto:contact@cuni.cz> .
+        ex:universityName "CUNI"@en ;
+        ex:numberOfFaculties 3 ;
+        ex:numberOfTeachers 500 ; 
+        ex:email <mailto:info@cuni.edu>  ;
+        ex:email <mailto:admissions@cuni.edu> .
 
-    ex:Faculty_of_Computer_Science a ex:Faculty ;
-        ex:name "Faculty of Computer Science"@en ;
-        ex:numberOfStudents 500 ;
-        ex:numberOfTeachers 50 ;
+
+    
+    ex:uni2 a ex:University ;
+        ex:universityName "CVUT"@en ;
+        ex:numberOfFaculties 5 ;
+        ex:numberOfTeachers 600 ; .
+
+    
+    
+    ex:uni3 a ex:University ;
+        ex:universityName "VSE"@en ;
+        ex:numberOfFaculties 4 ;
+        ex:numberOfTeachers 450 ; 
+        ex:email <mailto:admin@vse.cz>  ;
+        ex:email <mailto:info@vse.cz> .
+
+
+    
+        
+    ex:faculty1 a ex:Faculty ;
+        ex:facultyName" MFF"@en ;
+        ex:numberOfFacultyStudents 2000 ;
+        ex:numberOfFacultyTeachers 100 ;
         ex:facultyOf ex:uni1 .
     
 
-    ex:canteen_d1e23 a ex:Canteen ;
-        ex:menu "Pizza, Pasta, Salad"@en ;
+        
+    ex:faculty2 a ex:Faculty ;
+        ex:facultyName" Faculty of History"@en ;
+        ex:numberOfFacultyStudents 1500 ;
+        ex:numberOfFacultyTeachers 75 ;
+        ex:facultyOf ex:uni2 .
+    
+
+        
+    ex:faculty3 a ex:Faculty ;
+        ex:facultyName" Faculty of Engineering"@en ;
+        ex:numberOfFacultyStudents 1800 ;
+        ex:numberOfFacultyTeachers 90 ;
+        ex:facultyOf ex:uni3 .
+    
+
+    
+
+    
+        
+    ex:canteen1 a ex:Canteen ;
+        ex:menu "Pizza, Salad, Soup"@en ;
+        ex:capacity 200 ;
+        ex:belongsTo ex:faculty1 .
+    
+
+
+        
+    ex:canteen2 a ex:Canteen ;
+        ex:menu "Sushi, Rice Bowls, Noodles"@en ;
+        ex:capacity 150 ;
+        ex:belongsTo ex:faculty2 .
+    
+
+
+        
+    ex:canteen3 a ex:Canteen ;
+        ex:menu "Burgers, Fries, Coffee"@en ;
         ex:capacity 100 ;
-        ex:belongsTo ex:Faculty_of_Computer_Science .
+        ex:belongsTo ex:faculty3 .
     
 
-    ex:teacher_d1e33 a ex:Teacher ;
-        ex:teacherId "T001" ;
-        ex:teachesAt ex:Faculty_of_Computer_Science ;
-        foaf:givenName "Marek"@en ;
-        foaf:familyName "Zima"@en .
     
 
-    ex:teacher_d1e44 a ex:Teacher ;
-        ex:teacherId "T002" ;
-        ex:teachesAt ex:Faculty_of_Computer_Science ;
-        foaf:givenName "Petr"@en ;
-        foaf:familyName "Pavel"@en .
     
-
-    ex:student_d1e59 a ex:Student ;
+        
+    ex:student1 a ex:Student ;
         ex:studentId "S001" ;
-        ex:studiesAt ex:Faculty_of_Computer_Science ;
-        foaf:givenName "Nicolai"@en ;
-        foaf:familyName "Liapkin"@en .
+        ex:enrolledIn ex:faculty1 ;
+        ex:givenName "Marek"@en ;
+        ex:familyName "Most"@en .
     
 
-    ex:student_d1e70 a ex:Student ;
+        
+        
+    ex:student2 a ex:Student ;
         ex:studentId "S002" ;
-        ex:studiesAt ex:Faculty_of_Computer_Science ;
-        foaf:givenName "Diana"@en ;
-        foaf:familyName "Abrak"@en .
+        ex:enrolledIn ex:faculty2 ;
+        ex:givenName "Petra"@en ;
+        ex:familyName "Zima"@en .
     
 
-    ex:researchProject_d1e84 a ex:ResearchProject ;
-        ex:title "AI for Healthcare"@en ;
-        ex:description "Using AI to improve patient care"@en ;
-        ex:leads ex:Faculty_of_Computer_Science .
-    
-
-    ex:researchProject_d1e93 a ex:ResearchProject ;
-        ex:title "Blockchain Security"@en ;
-        ex:description "Enhancing blockchain systems"@en ;
-        ex:leads ex:Faculty_of_Computer_Science .
-    
-
-    ex:Faculty_of_Engineering a ex:Faculty ;
-        ex:name "Faculty of Engineering"@en ;
-        ex:numberOfStudents 400 ;
-        ex:numberOfTeachers 30 ;
-        ex:facultyOf ex:uni1 .
-    
-
-    ex:canteen_d1e113 a ex:Canteen ;
-        ex:menu "Burgers, Sandwiches, Coffee"@en ;
-        ex:capacity 80 ;
-        ex:belongsTo ex:Faculty_of_Engineering .
-    
-
-    ex:teacher_d1e123 a ex:Teacher ;
-        ex:teacherId "T003" ;
-        ex:teachesAt ex:Faculty_of_Engineering ;
-        foaf:givenName "Walter"@en ;
-        foaf:familyName "White"@en .
-    
-
-    ex:student_d1e138 a ex:Student ;
+        
+        
+    ex:student3 a ex:Student ;
         ex:studentId "S003" ;
-        ex:studiesAt ex:Faculty_of_Engineering ;
-        foaf:givenName "Andrew"@en ;
-        foaf:familyName "Luka"@en .
+        ex:enrolledIn ex:faculty3 ;
+        ex:givenName "Andrea"@en ;
+        ex:familyName "Misuk"@en .
     
 
-    ex:researchProject_d1e152 a ex:ResearchProject ;
-        ex:title "Renewable Energy Systems"@en ;
-        ex:description "Optimizing solar and wind energy"@en ;
-        ex:leads ex:Faculty_of_Engineering .
     
+
+    
+        
+    ex:teacher1 a ex:Teacher ;
+        ex:teacherId "T001" ;
+        ex:teachesAt ex:faculty1 ;
+        ex:givenName "Martin"@en ;
+        ex:familyName "Jakov"@en .
+    
+
+        
+        
+    ex:teacher2 a ex:Teacher ;
+        ex:teacherId "T002" ;
+        ex:teachesAt ex:faculty2 ;
+        ex:givenName "Filip"@en ;
+        ex:familyName "Cerny"@en .
+    
+
+
+        
+    ex:teacher3 a ex:Teacher ;
+        ex:teacherId "T003" ;
+        ex:teachesAt ex:faculty3 ;
+        ex:givenName "Vojtech"@en ;
+        ex:familyName "Mraz"@en .
+    
+
+    
+
+    
+        
+    ex:researchProject1 a ex:ResearchProject ;
+        ex:projectTitle "AI for Climate Change"@en ;
+        ex:projectDescription "Research on AI models for climate action"@en ;
+        ex:leads ex:faculty1 .
+    
+
+        
+        
+    ex:researchProject2 a ex:ResearchProject ;
+        ex:projectTitle "Art History Analysis"@en ;
+        ex:projectDescription "Digital tools for art history"@en ;
+        ex:leads ex:faculty2 .
+    
+
+        
+        
+    ex:researchProject3 a ex:ResearchProject ;
+        ex:projectTitle "Sustainable Engineering"@en ;
+        ex:projectDescription "Research on sustainable engineering practices"@en ;
+        ex:leads ex:faculty3 .
+    
+
+    
+

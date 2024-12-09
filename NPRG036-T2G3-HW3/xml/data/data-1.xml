@@ -43,22 +43,36 @@
         </faculty>
         <faculty id="faculty2">
             <type>Faculty</type>
-            <facultyName xml:lang="en">FEL</facultyName>
-            <numberOfFacultyStudents>3000</numberOfFacultyStudents>
-            <numberOfFacultyTeachers>150</numberOfFacultyTeachers>
+            <facultyName xml:lang="en">Faculty of History</facultyName>
+            <numberOfFacultyStudents>1500</numberOfFacultyStudents>
+            <numberOfFacultyTeachers>75</numberOfFacultyTeachers>
             <facultyOf>uni2</facultyOf>
         </faculty>
         <faculty id="faculty3">
             <type>Faculty</type>
-            <facultyName xml:lang="en">FF</facultyName>
-            <numberOfFacultyStudents>2500</numberOfFacultyStudents>
-            <numberOfFacultyTeachers>120</numberOfFacultyTeachers>
+            <facultyName xml:lang="en">Faculty of Engineering</facultyName>
+            <numberOfFacultyStudents>1800</numberOfFacultyStudents>
+            <numberOfFacultyTeachers>90</numberOfFacultyTeachers>
             <facultyOf>uni3</facultyOf>
         </faculty>
     </faculties>
 
     <canteens>
         <canteen id="canteen1">
+            <type>Canteen</type>
+            <menu xml:lang="en">Pizza, Salad, Soup</menu>
+            <capacity>200</capacity>
+            <belongsTo>faculty1</belongsTo>
+        </canteen>
+
+        <canteen id="canteen2">
+            <type>Canteen</type>
+            <menu xml:lang="en">Sushi, Rice Bowls, Noodles</menu>
+            <capacity>150</capacity>
+            <belongsTo>faculty2</belongsTo>
+        </canteen>
+
+        <canteen id="canteen3">
             <type>Canteen</type>
             <menu xml:lang="en">Burgers, Fries, Coffee</menu>
             <capacity>100</capacity>
@@ -102,11 +116,19 @@
         </teacher>
         
         <teacher id="teacher2">
-            <givenName xml:lang="en">Petra</givenName>
-            <familyName xml:lang="en">Zima</familyName>
+            <givenName xml:lang="en">Filip</givenName>
+            <familyName xml:lang="en">Cerny</familyName>
             <type>Teacher</type>
             <teacherId>T002</teacherId>
             <teachesAt>faculty2</teachesAt>
+        </teacher>
+
+        <teacher id="teacher3">
+            <givenName xml:lang="en">Vojtech</givenName>
+            <familyName xml:lang="en">Mraz</familyName>
+            <type>Teacher</type>
+            <teacherId>T003</teacherId>
+            <teachesAt>faculty3</teachesAt>
         </teacher>
     </teachers>
 

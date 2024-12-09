@@ -16,10 +16,10 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
 <!-- University -->
 <xsl:template match="university">
-    ex:<xsl:call-template name="generate-university-id"/> a ex:University ;
-        ex:universityName "<xsl:value-of select="name" />"@en ;
-        ex:numberOfFaculties <xsl:value-of select="count(faculties/faculty)" /> ;
-        ex:numberOfTeachers <xsl:value-of select="numberOfTeachers" /> ; <xsl:for-each select="email">
+    ex:<xsl:value-of select="@id"/> a ex:University ;
+        ex:universityName "<xsl:value-of select="universityName" />"@en ;
+        ex:numberOfFaculties <xsl:value-of select="numberOfFaculties" /> ;
+        ex:numberOfTeachers <xsl:value-of select="numberOfTeachers" /> ; <xsl:for-each select="emails/email">
         ex:email &lt;mailto:<xsl:value-of select="." />&gt; <xsl:if test="position() != last()"> ;</xsl:if>
         </xsl:for-each>
     <xsl:text>.</xsl:text>
@@ -27,19 +27,13 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
     <xsl:apply-templates select="faculties/faculty"/>
 </xsl:template>
 
-<!-- Generate University ID -->
-<xsl:template name="generate-university-id">
-    <xsl:text>uni</xsl:text>
-    <xsl:value-of select="position()"/>
-</xsl:template>
-
 <!-- Faculties -->
 <xsl:template match="faculty">
-    ex:<xsl:value-of select="translate(name, ' ', '_')" /> a ex:Faculty ;
-        ex:name "<xsl:value-of select="name" />"@en ;
-        ex:numberOfStudents <xsl:value-of select="numberOfStudents" /> ;
-        ex:numberOfTeachers <xsl:value-of select="numberOfTeachers" /> ;
-        ex:facultyOf ex:uni1 .
+    ex:<xsl:value-of select="@id" /> a ex:Faculty ;
+        ex:facultyName" <xsl:value-of select="facultyName" />"@en ;
+        ex:numberOfFacultyStudents <xsl:value-of select="numberOfFacultyStudents" /> ;
+        ex:numberOfFacultyTeachers <xsl:value-of select="numberOfFacultyTeachers" /> ;
+        ex:facultyOf ex:<xsl:value-of select="facultyOf"/> .
     <xsl:value-of select="'&#10;'" />
     <xsl:apply-templates select="canteen"/>
     <xsl:apply-templates select="teachers/teacher"/>
@@ -49,39 +43,39 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
 
 <!-- Teachers -->
 <xsl:template match="teacher">
-    ex:teacher_<xsl:value-of select="generate-id()"/> a ex:Teacher ;
-        ex:teacherId "<xsl:value-of select="teacherID" />" ;
-        ex:teachesAt ex:<xsl:value-of select="translate(../../name, ' ', '_')" /> ;
-        foaf:givenName "<xsl:value-of select="givenName" />"@en ;
-        foaf:familyName "<xsl:value-of select="familyName" />"@en .
+    ex:<xsl:value-of select="@id"/> a ex:Teacher ;
+        ex:teacherId "<xsl:value-of select="teacherId" />" ;
+        ex:teachesAt ex:<xsl:value-of select="teachesAt" /> ;
+        ex:givenName "<xsl:value-of select="givenName" />"@en ;
+        ex:familyName "<xsl:value-of select="familyName" />"@en .
     <xsl:value-of select="'&#10;'" />
 </xsl:template>
 
 <!-- Students -->
 <xsl:template match="student">
-    ex:student_<xsl:value-of select="generate-id()"/> a ex:Student ;
-        ex:studentId "<xsl:value-of select="studentID" />" ;
-        ex:studiesAt ex:<xsl:value-of select="translate(../../name, ' ', '_')" /> ;
-        foaf:givenName "<xsl:value-of select="givenName" />"@en ;
-        foaf:familyName "<xsl:value-of select="familyName" />"@en .
+    ex:<xsl:value-of select="@id"/> a ex:Student ;
+        ex:studentId "<xsl:value-of select="studentId" />" ;
+        ex:enrolledIn ex:<xsl:value-of select="enrolledIn" /> ;
+        ex:givenName "<xsl:value-of select="givenName" />"@en ;
+        ex:familyName "<xsl:value-of select="familyName" />"@en .
     <xsl:value-of select="'&#10;'" />
 </xsl:template>
 
 <!-- Canteen -->
 <xsl:template match="canteen">
-    ex:canteen_<xsl:value-of select="generate-id()"/> a ex:Canteen ;
+    ex:<xsl:value-of select="@id"/> a ex:Canteen ;
         ex:menu "<xsl:value-of select="menu" />"@en ;
         ex:capacity <xsl:value-of select="capacity" /> ;
-        ex:belongsTo ex:<xsl:value-of select="translate(../name, ' ', '_')" /> .
+        ex:belongsTo ex:<xsl:value-of select="belongsTo" /> .
     <xsl:value-of select="'&#10;'" />
 </xsl:template>
 
 <!-- Research Projects -->
 <xsl:template match="researchProject">
-    ex:researchProject_<xsl:value-of select="generate-id()"/> a ex:ResearchProject ;
-        ex:title "<xsl:value-of select="title" />"@en ;
-        ex:description "<xsl:value-of select="description" />"@en ;
-        ex:leads ex:<xsl:value-of select="translate(../../name, ' ', '_')" /> .
+    ex:<xsl:value-of select="@id"/> a ex:ResearchProject ;
+        ex:projectTitle "<xsl:value-of select="projectTitle" />"@en ;
+        ex:projectDescription "<xsl:value-of select="projectDescription" />"@en ;
+        ex:leads ex:<xsl:value-of select="leads" /> .
     <xsl:value-of select="'&#10;'" />
 </xsl:template>
 
