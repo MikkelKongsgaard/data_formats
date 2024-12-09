@@ -1,100 +1,199 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xml="http://www.w3.org/XML/1998/namespace">
+  
+  <!-- Import xml: namespace for language support -->
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+             schemaLocation="https://www.w3.org/2009/01/xml.xsd" />
 
-    <!-- Base type: Person -->
-    <xs:complexType name="Person">
-        <xs:sequence>
-            <xs:element name="givenName" type="xs:string" />
-            <xs:element name="familyName" type="xs:string" />
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- Derived type: Teacher extends Person -->
-    <xs:complexType name="Teacher">
-        <xs:complexContent>
-            <xs:extension base="Person">
-                <xs:sequence>
-                    <xs:element name="teacherID" type="xs:string" />
-                </xs:sequence>
+  <!-- Base Person Complex Type with common attributes for teachers and students -->
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element name="givenName">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:lang" use="optional"/>
             </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-
-    <!-- Derived type: Student extends Person -->
-    <xs:complexType name="Student">
-        <xs:complexContent>
-            <xs:extension base="Person">
-                <xs:sequence>
-                    <xs:element name="studentID" type="xs:string" />
-                </xs:sequence>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="familyName">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:lang" use="optional"/>
             </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
-    <!-- Complex type: Canteen -->
-    <xs:complexType name="Canteen">
-        <xs:sequence>
-            <xs:element name="menu" type="xs:string" />
-            <xs:element name="capacity" type="xs:int" />
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- Complex type: ResearchProject -->
-    <xs:complexType name="ResearchProject">
-        <xs:sequence>
-            <xs:element name="title" type="xs:string" />
-            <xs:element name="description" type="xs:string" />
-        </xs:sequence>
-    </xs:complexType>
-
-    <!-- Complex type: Faculty -->
-    <xs:complexType name="Faculty">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string" />
-            <xs:element name="numberOfStudents" type="xs:int" />
-            <xs:element name="numberOfTeachers" type="xs:int" />
-            <xs:element name="canteen" type="Canteen" minOccurs="0" />
-            <xs:element name="teachers" maxOccurs="unbounded" minOccurs="0">
+  <!-- Define root element -->
+  <xs:element name="universities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="university" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="type" type="xs:string"/>
+              
+              <!-- Language-specific universityName element -->
+              <xs:element name="universityName">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="teacher" type="Teacher" />
-                    </xs:sequence>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute ref="xml:lang" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
                 </xs:complexType>
-            </xs:element>
-            <xs:element name="students" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="student" type="Student" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="researchProjects" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="researchProject" type="ResearchProject" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
+              </xs:element>
 
-    <!-- Complex type: University -->
-    <xs:complexType name="University">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string" />
-            <xs:element name="numberOfTeachers" type="xs:int" />
-            <xs:element name="email" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
-            <xs:element name="faculties" maxOccurs="unbounded">
+              <xs:element name="numberOfFaculties" type="xs:int"/>
+              <xs:element name="numberOfTeachers" type="xs:int"/>
+              <xs:element name="emails">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="faculty" type="Faculty" />
-                    </xs:sequence>
+                  <xs:sequence>
+                    <xs:element name="email" maxOccurs="unbounded" type="xs:string" minOccurs="0"/>
+                  </xs:sequence>
                 </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
 
-    <!-- Root element: University -->
-    <xs:element name="university" type="University" />
+        <xs:element name="faculties">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="faculty" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="type" type="xs:string"/>
+                    <xs:element name="facultyName">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute ref="xml:lang" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="numberOfFacultyStudents" type="xs:int"/>
+                    <xs:element name="numberOfFacultyTeachers" type="xs:int"/>
+                    <xs:element name="facultyOf" type="xs:string"/>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="canteens">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="canteen" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="type" type="xs:string"/>
+                    <xs:element name="menu">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute ref="xml:lang" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="capacity" type="xs:int"/>
+                    <xs:element name="belongsTo" type="xs:string"/>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="students">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="student" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:complexContent>
+                    <xs:extension base="Person">
+                      <xs:sequence>
+                        <xs:element name="type" type="xs:string"/>
+                        <xs:element name="studentId" type="xs:string"/>
+                        <xs:element name="enrolledIn" type="xs:string"/>
+                      </xs:sequence>
+                      <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:extension>
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="teachers">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="teacher" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:complexContent>
+                    <xs:extension base="Person">
+                      <xs:sequence>
+                        <xs:element name="type" type="xs:string"/>
+                        <xs:element name="teacherId" type="xs:string"/>
+                        <xs:element name="teachesAt" type="xs:string"/>
+                      </xs:sequence>
+                      <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:extension>
+                  </xs:complexContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="researchProjects">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="researchProject" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="type" type="xs:string"/>
+                    <xs:element name="projectTitle">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute ref="xml:lang" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="projectDescription">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute ref="xml:lang" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="leads" type="xs:string"/>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 
 </xs:schema>

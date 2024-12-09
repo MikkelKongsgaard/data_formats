@@ -1,0 +1,134 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://example.org/university#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+    
+    ex:uni2 a ex:University ;
+        ex:universityName ""@en ;
+        ex:numberOfFaculties 0 ;
+        ex:numberOfTeachers 500 ; .
+
+
+    
+    ex:uni4 a ex:University ;
+        ex:universityName ""@en ;
+        ex:numberOfFaculties 0 ;
+        ex:numberOfTeachers 600 ; .
+
+    
+    
+    ex:uni6 a ex:University ;
+        ex:universityName ""@en ;
+        ex:numberOfFaculties 0 ;
+        ex:numberOfTeachers 450 ; .
+
+
+    
+        
+    ex: a ex:Faculty ;
+        ex:name ""@en ;
+        ex:numberOfStudents  ;
+        ex:numberOfTeachers  ;
+        ex:facultyOf ex:uni1 .
+    
+
+        
+    ex: a ex:Faculty ;
+        ex:name ""@en ;
+        ex:numberOfStudents  ;
+        ex:numberOfTeachers  ;
+        ex:facultyOf ex:uni1 .
+    
+
+        
+    ex: a ex:Faculty ;
+        ex:name ""@en ;
+        ex:numberOfStudents  ;
+        ex:numberOfTeachers  ;
+        ex:facultyOf ex:uni1 .
+    
+
+    
+
+    
+        
+    ex:canteen_d1e102 a ex:Canteen ;
+        ex:menu "Burgers, Fries, Coffee"@en ;
+        ex:capacity 100 ;
+        ex:belongsTo ex: .
+    
+
+    
+
+    
+        
+    ex:student_d1e118 a ex:Student ;
+        ex:studentId "" ;
+        ex:studiesAt ex: ;
+        foaf:givenName "Marek"@en ;
+        foaf:familyName "Most"@en .
+    
+
+        
+        
+    ex:student_d1e133 a ex:Student ;
+        ex:studentId "" ;
+        ex:studiesAt ex: ;
+        foaf:givenName "Petra"@en ;
+        foaf:familyName "Zima"@en .
+    
+
+        
+        
+    ex:student_d1e148 a ex:Student ;
+        ex:studentId "" ;
+        ex:studiesAt ex: ;
+        foaf:givenName "Andrea"@en ;
+        foaf:familyName "Misuk"@en .
+    
+
+    
+
+    
+        
+    ex:teacher_d1e166 a ex:Teacher ;
+        ex:teacherId "" ;
+        ex:teachesAt ex: ;
+        foaf:givenName "Martin"@en ;
+        foaf:familyName "Jakov"@en .
+    
+
+        
+        
+    ex:teacher_d1e181 a ex:Teacher ;
+        ex:teacherId "" ;
+        ex:teachesAt ex: ;
+        foaf:givenName "Petra"@en ;
+        foaf:familyName "Zima"@en .
+    
+
+    
+
+    
+        
+    ex:researchProject_d1e199 a ex:ResearchProject ;
+        ex:title ""@en ;
+        ex:description ""@en ;
+        ex:leads ex: .
+    
+
+        
+        
+    ex:researchProject_d1e212 a ex:ResearchProject ;
+        ex:title ""@en ;
+        ex:description ""@en ;
+        ex:leads ex: .
+    
+
+        
+        
+    ex:researchProject_d1e225 a ex:ResearchProject ;
+        ex:title ""@en ;
+        ex:description ""@en ;
+        ex:leads ex: .
