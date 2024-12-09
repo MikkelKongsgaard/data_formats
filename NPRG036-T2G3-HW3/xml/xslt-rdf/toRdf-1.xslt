@@ -14,7 +14,7 @@ xmlns:foaf="http://xmlns.com/foaf/0.1/">
     <xsl:apply-templates/>
 </xsl:template>
 
-    <!-- University -->
+<!-- University -->
 <xsl:template match="university">
     ex:<xsl:call-template name="generate-university-id"/> a ex:University ;
         ex:universityName "<xsl:value-of select="name" />"@en ;
