@@ -1,0 +1,12 @@
+# return the name of the faculty where the number of students is not equal to the number of teachers
+PREFIX ex: <http://example.org/vocabulary/>
+
+SELECT ?facultyName
+WHERE {
+  ?faculty 
+    ex:facultyName ?facultyName ;
+    ex:numberOfFacultyStudents ?students ;
+    ex:numberOfFacultyTeachers ?teachers .
+    
+  FILTER(?students != ?teachers)
+}

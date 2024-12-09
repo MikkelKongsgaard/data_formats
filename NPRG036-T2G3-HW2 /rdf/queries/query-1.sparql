@@ -1,0 +1,25 @@
+# This query will return a list of faculty names, student names, teacher names, and project titles where:
+# Each student is enrolled in a faculty.
+# Each teacher teaches at a faculty.
+# Each project is led by a faculty
+PREFIX ex: <http://example.org/vocabulary/>
+
+SELECT ?facultyName ?studentName ?teacherName ?projectTitle
+WHERE {
+  ?faculty 
+    ex:facultyName ?facultyName ;
+    ex:numberOfFacultyStudents ?students ;
+    ex:numberOfFacultyTeachers ?teachers .
+    
+  ?student 
+    ex:enrolledIn ?faculty ;
+    ex:givenName ?studentName .
+
+  ?teacher 
+    ex:teachesAt ?faculty ;
+    ex:givenName ?teacherName .
+
+  ?project 
+    ex:leads ?faculty ;
+    ex:projectTitle ?projectTitle .
+}

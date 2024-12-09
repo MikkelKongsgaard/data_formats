@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<university xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xml="http://www.w3.org/XML/1998/namespace">
+
+
+    <name xml:lang="en">Charles University</name>
+    <numberOfTeachers>200</numberOfTeachers>
+    <email>mailto:info@cuni.cz</email>
+    <email>mailto:contact@cuni.cz</email>
+
+    <faculties>
+        <faculty>
+            <name xml:lang="en">Faculty of Computer Science</name>
+            <numberOfStudents>500</numberOfStudents>
+            <numberOfTeachers>50</numberOfTeachers>
+            <canteen>
+                <menu xml:lang="en">Pizza, Pasta, Salad</menu>
+                <capacity>100</capacity>
+            </canteen>
+            <teachers>
+                <teacher>
+                    <givenName xml:lang="en">Marek</givenName>
+                    <familyName xml:lang="en">Zima</familyName>
+                    <teacherID>T001</teacherID>
+                </teacher>
+                <teacher>
+                    <givenName xml:lang="en">Petr</givenName>
+                    <familyName xml:lang="en">Pavel</familyName>
+                    <teacherID>T002</teacherID>
+                </teacher>
+            </teachers>
+            <students>
+                <student>
+                    <givenName xml:lang="en">Nicolai</givenName>
+                    <familyName xml:lang="en">Liapkin</familyName>
+                    <studentID>S001</studentID>
+                </student>
+                <student>
+                    <givenName xml:lang="en">Diana</givenName>
+                    <familyName xml:lang="en">Abrak</familyName>
+                    <studentID>S002</studentID>
+                </student>
+            </students>
+            <researchProjects>
+                <researchProject>
+                    <title xml:lang="en">AI for Healthcare</title>
+                    <description xml:lang="en">Using AI to improve patient care</description>
+                </researchProject>
+                <researchProject>
+                    <title xml:lang="en">Blockchain Security</title>
+                    <description xml:lang="en">Enhancing blockchain systems</description>
+                </researchProject>
+            </researchProjects>
+        </faculty>
+        <faculty>
+            <name xml:lang="en">Faculty of Engineering</name>
+            <numberOfStudents>400</numberOfStudents>
+            <numberOfTeachers>30</numberOfTeachers>
+            <canteen>
+                <menu xml:lang="en">Burgers, Sandwiches, Coffee</menu>
+                <capacity>80</capacity>
+            </canteen>
+            <teachers>
+                <teacher>
+                    <givenName xml:lang="en">Walter</givenName>
+                    <familyName xml:lang="en">White</familyName>
+                    <teacherID>T003</teacherID>
+                </teacher>
+            </teachers>
+            <students>
+                <student>
+                    <givenName xml:lang="en">Andrew</givenName>
+                    <familyName xml:lang="en">Luka</familyName>
+                    <studentID>S003</studentID>
+                </student>
+            </students>
+            <researchProjects>
+                <researchProject>
+                    <title xml:lang="en">Renewable Energy Systems</title>
+                    <description xml:lang="en">Optimizing solar and wind energy</description>
+                </researchProject>
+            </researchProjects>
+        </faculty>
+    </faculties>
+</university>

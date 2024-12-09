@@ -1,0 +1,16 @@
+#returns faculty names and canteen capacities where the canteen capacity is greater than 150
+PREFIX ex: <http://example.org/vocabulary/>
+
+SELECT ?facultyName ?canteenCapacity
+WHERE {
+  ?faculty 
+    ex:facultyName ?facultyName ;
+    ex:numberOfFacultyStudents ?students ;
+    ex:numberOfFacultyTeachers ?teachers .
+
+  ?canteen 
+    ex:belongsTo ?faculty ;
+    ex:capacity ?canteenCapacity .
+
+  FILTER(?canteenCapacity > 150)
+}

@@ -1,0 +1,1 @@
+.faculties[] | select(.canteen.capacity > 90) | .facultyName

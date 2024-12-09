@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Base type: Person -->
+    <xs:complexType name="Person">
+        <xs:sequence>
+            <xs:element name="givenName" type="xs:string" />
+            <xs:element name="familyName" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Derived type: Teacher extends Person -->
+    <xs:complexType name="Teacher">
+        <xs:complexContent>
+            <xs:extension base="Person">
+                <xs:sequence>
+                    <xs:element name="teacherID" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Derived type: Student extends Person -->
+    <xs:complexType name="Student">
+        <xs:complexContent>
+            <xs:extension base="Person">
+                <xs:sequence>
+                    <xs:element name="studentID" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Complex type: Canteen -->
+    <xs:complexType name="Canteen">
+        <xs:sequence>
+            <xs:element name="menu" type="xs:string" />
+            <xs:element name="capacity" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Complex type: ResearchProject -->
+    <xs:complexType name="ResearchProject">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string" />
+            <xs:element name="description" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Complex type: Faculty -->
+    <xs:complexType name="Faculty">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="numberOfStudents" type="xs:int" />
+            <xs:element name="numberOfTeachers" type="xs:int" />
+            <xs:element name="canteen" type="Canteen" minOccurs="0" />
+            <xs:element name="teachers" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="teacher" type="Teacher" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="students" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="student" type="Student" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="researchProjects" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="researchProject" type="ResearchProject" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Complex type: University -->
+    <xs:complexType name="University">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="numberOfTeachers" type="xs:int" />
+            <xs:element name="email" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
+            <xs:element name="faculties" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="faculty" type="Faculty" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Root element: University -->
+    <xs:element name="university" type="University" />
+
+</xs:schema>

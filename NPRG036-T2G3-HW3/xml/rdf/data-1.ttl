@@ -1,0 +1,96 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://example.org/university#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+    ex:uni1 a ex:University ;
+        ex:universityName "Charles University"@en ;
+        ex:numberOfFaculties 2 ;
+        ex:numberOfTeachers 200 ; 
+        ex:email <mailto:mailto:info@cuni.cz>  ;
+        ex:email <mailto:mailto:contact@cuni.cz> .
+
+    ex:Faculty_of_Computer_Science a ex:Faculty ;
+        ex:name "Faculty of Computer Science"@en ;
+        ex:numberOfStudents 500 ;
+        ex:numberOfTeachers 50 ;
+        ex:facultyOf ex:uni1 .
+    
+
+    ex:canteen_d1e23 a ex:Canteen ;
+        ex:menu "Pizza, Pasta, Salad"@en ;
+        ex:capacity 100 ;
+        ex:belongsTo ex:Faculty_of_Computer_Science .
+    
+
+    ex:teacher_d1e33 a ex:Teacher ;
+        ex:teacherId "T001" ;
+        ex:teachesAt ex:Faculty_of_Computer_Science ;
+        foaf:givenName "Marek"@en ;
+        foaf:familyName "Zima"@en .
+    
+
+    ex:teacher_d1e44 a ex:Teacher ;
+        ex:teacherId "T002" ;
+        ex:teachesAt ex:Faculty_of_Computer_Science ;
+        foaf:givenName "Petr"@en ;
+        foaf:familyName "Pavel"@en .
+    
+
+    ex:student_d1e59 a ex:Student ;
+        ex:studentId "S001" ;
+        ex:studiesAt ex:Faculty_of_Computer_Science ;
+        foaf:givenName "Nicolai"@en ;
+        foaf:familyName "Liapkin"@en .
+    
+
+    ex:student_d1e70 a ex:Student ;
+        ex:studentId "S002" ;
+        ex:studiesAt ex:Faculty_of_Computer_Science ;
+        foaf:givenName "Diana"@en ;
+        foaf:familyName "Abrak"@en .
+    
+
+    ex:researchProject_d1e84 a ex:ResearchProject ;
+        ex:title "AI for Healthcare"@en ;
+        ex:description "Using AI to improve patient care"@en ;
+        ex:leads ex:Faculty_of_Computer_Science .
+    
+
+    ex:researchProject_d1e93 a ex:ResearchProject ;
+        ex:title "Blockchain Security"@en ;
+        ex:description "Enhancing blockchain systems"@en ;
+        ex:leads ex:Faculty_of_Computer_Science .
+    
+
+    ex:Faculty_of_Engineering a ex:Faculty ;
+        ex:name "Faculty of Engineering"@en ;
+        ex:numberOfStudents 400 ;
+        ex:numberOfTeachers 30 ;
+        ex:facultyOf ex:uni1 .
+    
+
+    ex:canteen_d1e113 a ex:Canteen ;
+        ex:menu "Burgers, Sandwiches, Coffee"@en ;
+        ex:capacity 80 ;
+        ex:belongsTo ex:Faculty_of_Engineering .
+    
+
+    ex:teacher_d1e123 a ex:Teacher ;
+        ex:teacherId "T003" ;
+        ex:teachesAt ex:Faculty_of_Engineering ;
+        foaf:givenName "Walter"@en ;
+        foaf:familyName "White"@en .
+    
+
+    ex:student_d1e138 a ex:Student ;
+        ex:studentId "S003" ;
+        ex:studiesAt ex:Faculty_of_Engineering ;
+        foaf:givenName "Andrew"@en ;
+        foaf:familyName "Luka"@en .
+    
+
+    ex:researchProject_d1e152 a ex:ResearchProject ;
+        ex:title "Renewable Energy Systems"@en ;
+        ex:description "Optimizing solar and wind energy"@en ;
+        ex:leads ex:Faculty_of_Engineering .
+    

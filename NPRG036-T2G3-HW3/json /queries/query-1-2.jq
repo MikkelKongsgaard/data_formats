@@ -1,0 +1,1 @@
+.faculties[] | select(.numberOfFacultyStudents > 400) | .teachers[] | {givenName, familyName}

@@ -1,0 +1,90 @@
+PREFIX ex: <http://example.org/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+ex:canteen1  a       ex:Canteen;
+        ex:capacity  100;
+        ex:menu      "Pizza, Pasta, Salad" .
+
+ex:canteen2  a       ex:Canteen;
+        ex:capacity  50;
+        ex:menu      "Burger, Fries, Milkshake" .
+
+ex:faculty1  a                      ex:Faculty;
+        ex:facultyName              "Faculty of Computer Science";
+        ex:hasCanteen               ex:canteen1;
+        ex:hasResearchProject       ex:researchProject1;
+        ex:hasStudent               ex:student1;
+        ex:hasStudent               ex:student2;
+        ex:hasTeacher               ex:teacher1;
+        ex:hasTeacher               ex:teacher2;
+        ex:numberOfFacultyStudents  500;
+        ex:numberOfFacultyTeachers  50 .
+
+ex:faculty2  a                      ex:Faculty;
+        ex:facultyName              "Faculty of Mathematics";
+        ex:hasCanteen               ex:canteen2;
+        ex:hasResearchProject       ex:researchProject2;
+        ex:hasStudent               ex:student3;
+        ex:hasStudent               ex:student4;
+        ex:hasTeacher               ex:teacher3;
+        ex:hasTeacher               ex:teacher4;
+        ex:numberOfFacultyStudents  300;
+        ex:numberOfFacultyTeachers  30 .
+
+ex:researchProject1  a         ex:ResearchProject;
+        ex:projectDescription  "Research on artificial intelligence.";
+        ex:projectTitle        "AI Research" .
+
+ex:researchProject2  a         ex:ResearchProject;
+        ex:projectDescription  "Research on mathematical models.";
+        ex:projectTitle        "Math Research" .
+
+ex:student1  a         ex:Student;
+        ex:familyName  "Novak";
+        ex:givenName   "Jan";
+        ex:studentId   "S001" .
+
+ex:student2  a         ex:Student;
+        ex:familyName  "Kralova";
+        ex:givenName   "Eva";
+        ex:studentId   "S002" .
+
+ex:student3  a         ex:Student;
+        ex:familyName  "Novotny";
+        ex:givenName   "Jiri";
+        ex:studentId   "S003" .
+
+ex:student4  a         ex:Student;
+        ex:familyName  "Kralova";
+        ex:givenName   "Eva";
+        ex:studentId   "S004" .
+
+ex:teacher1  a         ex:Teacher;
+        ex:familyName  "Zima";
+        ex:givenName   "Marek";
+        ex:teacherId   "T001" .
+
+ex:teacher2  a         ex:Teacher;
+        ex:familyName  "Pavel";
+        ex:givenName   "Petr";
+        ex:teacherId   "T002" .
+
+ex:teacher3  a         ex:Teacher;
+        ex:familyName  "Hruska";
+        ex:givenName   "Jana";
+        ex:teacherId   "T003" .
+
+ex:teacher4  a         ex:Teacher;
+        ex:familyName  "Kral";
+        ex:givenName   "Pavel";
+        ex:teacherId   "T004" .
+
+ex:university1  a             ex:University;
+        ex:email              "info@exampleuniversity.edu";
+        ex:email              "contact@exampleuniversity.edu";
+        ex:hasFaculty         ex:faculty1;
+        ex:hasFaculty         ex:faculty2;
+        ex:numberOfFaculties  2;
+        ex:numberOfTeachers   500;
+        ex:universityName     "Example University" .

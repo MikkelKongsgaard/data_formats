@@ -1,0 +1,1 @@
+.faculties[] | select(.numberOfFacultyTeachers > 40) | .researchProjects[] | {projectTitle, projectDescription}

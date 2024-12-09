@@ -1,0 +1,252 @@
+@prefix ex: <http://example.org/vocabulary/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Classes
+ex:University a rdfs:Class ;
+    rdfs:label "University"@en .
+
+ex:Faculty a rdfs:Class ;
+    rdfs:label "Faculty"@en .
+
+ex:Student a rdfs:Class ;
+    rdfs:label "Student"@en .
+
+ex:Teacher a rdfs:Class ;
+    rdfs:label "Teacher"@en .
+
+ex:Person a rdfs:Class ;
+    rdfs:label "Person"@en .
+
+ex:Canteen a rdfs:Class ;
+    rdfs:label "Canteen"@en .
+
+ex:ResearchProject a rdfs:Class ;
+    rdfs:label "Research Project"@en .
+
+# Properties for University
+ex:universityName a rdf:Property ;
+    rdfs:label "name of university"@en ;
+    rdfs:domain ex:University ;
+    rdfs:range rdf:langString .
+
+ex:numberOfFaculties a rdf:Property ;
+    rdfs:label "number of faculties"@en ;
+    rdfs:domain ex:University ;
+    rdfs:range xsd:integer .
+
+ex:numberOfTeachers a rdf:Property ;
+    rdfs:label "number of teachers at university"@en ;
+    rdfs:domain ex:University ;
+    rdfs:range xsd:integer .
+    
+ex:email a rdf:Property ;
+    rdfs:label "university email"@en ;
+    rdfs:domain ex:University ;
+    rdfs:range rdfs:Resource .
+
+# Bindings
+ex:facultyOf a rdf:Property ;
+    rdfs:label "faculty of university"@en ;
+    rdfs:domain ex:Faculty ;
+    rdfs:range ex:University .
+
+# Properties for Faculty
+ex:facultyName a rdf:Property ;
+    rdfs:label "name of faculty"@en ;
+    rdfs:domain ex:Faculty ;
+    rdfs:range rdf:langString .
+
+ex:numberOfFacultyStudents a rdf:Property ;
+    rdfs:label "number of students at faculty"@en ;
+    rdfs:domain ex:Faculty ;
+    rdfs:range xsd:integer .
+
+ex:numberOfFacultyTeachers a rdf:Property ;
+    rdfs:label "number of teachers at faculty"@en ;
+    rdfs:domain ex:Faculty ;
+    rdfs:range xsd:integer .
+
+
+ex:canteenOf a rdf:Property ;
+    rdfs:label "canteen of faculty"@en ;
+    rdfs:domain ex:Faculty ;
+    rdfs:range ex:Canteen .
+
+# Properties for Student
+ex:studentId a rdf:Property ;
+    rdfs:label "student ID"@en ;
+    rdfs:domain ex:Student ;
+    rdfs:range xsd:string .
+
+# Student enrolled in Faculty (preserving name)
+ex:enrolledIn a rdf:Property ;
+    rdfs:label "enrolled in faculty"@en ;
+    rdfs:domain ex:Student ;
+    rdfs:range ex:Faculty .
+
+# Properties for Teacher
+ex:teacherId a rdf:Property ;
+    rdfs:label "teacher ID"@en ;
+    rdfs:domain ex:Teacher ;
+    rdfs:range xsd:string .
+
+# Teacher works at Faculty (preserving name)
+ex:teachesAt a rdf:Property ;
+    rdfs:label "teaches at faculty"@en ;
+    rdfs:domain ex:Teacher ;
+    rdfs:range ex:Faculty .
+
+# Properties for Canteen
+ex:menu a rdf:Property ;
+    rdfs:label "menu"@en ;
+    rdfs:domain ex:Canteen ;
+    rdfs:range rdf:langString .
+
+ex:capacity a rdf:Property ;
+    rdfs:label "capacity"@en ;
+    rdfs:domain ex:Canteen ;
+    rdfs:range xsd:integer .
+
+# Canteen belongs to Faculty
+ex:belongsTo a rdf:Property ;
+    rdfs:label "belongs to faculty"@en ;
+    rdfs:domain ex:Canteen ;
+    rdfs:range ex:Faculty .
+
+# Properties for Research Project
+ex:projectTitle a rdf:Property ;
+    rdfs:label "title of research project"@en ;
+    rdfs:domain ex:ResearchProject ;
+    rdfs:range rdf:langString .
+
+ex:projectDescription a rdf:Property ;
+    rdfs:label "description of research project"@en ;
+    rdfs:domain ex:ResearchProject ;
+    rdfs:range rdf:langString .
+
+# Properties for Person
+ex:givenName a rdf:Property ;
+    rdfs:label "given name"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range rdf:langString .
+
+ex:familyName a rdf:Property ;
+    rdfs:label "family name"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range rdf:langString .
+
+# Research project is led by exactly one faculty (preserving name)
+ex:leads a rdf:Property ;
+    rdfs:label "faculty leads research project"@en ;
+    rdfs:domain ex:Faculty ;
+    rdfs:range ex:ResearchProject .
+
+ex:uni1 a ex:University ;
+    ex:universityName "CUNI"@en ;
+    ex:numberOfFaculties 3 ;
+    ex:numberOfTeachers 500 ;
+    ex:email <mailto:info@cuni.edu> ;
+    ex:email <mailto:admissions@cuni.edu> .
+
+ex:uni2 a ex:University ;
+    ex:universityName "CVUT"@en ;
+    ex:numberOfFaculties 5 ;
+    ex:numberOfTeachers 600 .
+
+ex:uni3 a ex:University ;
+    ex:universityName "VSE"@en ;
+    ex:numberOfFaculties 4 ;
+    ex:numberOfTeachers 450 ;
+    ex:email <mailto:admin@vse.cz> ;
+    ex:email <mailto:info@vse.cz> .
+
+# Instances of Faculty
+ex:faculty1 a ex:Faculty ;
+    ex:facultyName "MFF"@en ;
+    ex:numberOfFacultyStudents 2000 ;
+    ex:numberOfFacultyTeachers 100 ;
+    ex:facultyOf ex:uni1 .
+
+ex:faculty2 a ex:Faculty ;
+    ex:facultyName "Faculty of History"@en ;
+    ex:numberOfFacultyStudents 1500 ;
+    ex:numberOfFacultyTeachers 75 ;
+    ex:facultyOf ex:uni2 .
+
+ex:faculty3 a ex:Faculty ;
+    ex:facultyName "Faculty of Engineering"@en ;
+    ex:numberOfFacultyStudents 1800 ;
+    ex:numberOfFacultyTeachers 90 ;
+    ex:facultyOf ex:uni3 .
+
+# Instances of Canteen
+ex:canteen1 a ex:Canteen ;
+    ex:menu "Pizza, Salad, Soup"@en ;
+    ex:capacity 200 ;
+    ex:belongsTo ex:faculty1 .
+
+ex:canteen2 a ex:Canteen ;
+    ex:menu "Sushi, Rice Bowls, Noodles"@en ;
+    ex:capacity 150 ;
+    ex:belongsTo ex:faculty2 .
+
+ex:canteen3 a ex:Canteen ;
+    ex:menu "Burgers, Fries, Coffee"@en ;
+    ex:capacity 100 ;
+    ex:belongsTo ex:faculty3 .
+
+# Instances of Student
+ex:student1 a ex:Student ;
+    ex:studentId "S001" ;
+    ex:enrolledIn ex:faculty1 ;
+    ex:givenName "Marek"@en ;
+    ex:familyName "Most"@en .
+
+ex:student2 a ex:Student ;
+    ex:studentId "S002" ;
+    ex:enrolledIn ex:faculty2 ;
+    ex:givenName "Petra"@en ;
+    ex:familyName "Zima"@en .
+
+ex:student3 a ex:Student ;
+    ex:studentId "S003" ;
+    ex:enrolledIn ex:faculty3 ;
+    ex:givenName "Andrea"@en ;
+    ex:familyName "Misuk"@en .
+
+# Instances of Teacher
+ex:teacher1 a ex:Teacher ;
+    ex:teacherId "T001" ;
+    ex:teachesAt ex:faculty1 ;
+    ex:givenName "Martin"@en ;
+    ex:familyName "Jakov"@en .
+
+ex:teacher2 a ex:Teacher ;
+    ex:teacherId "T002" ;
+    ex:teachesAt ex:faculty2 ;
+    ex:givenName "Filip"@en ;
+    ex:familyName "Cerny"@en .
+
+ex:teacher3 a ex:Teacher ;
+    ex:teacherId "T003" ;
+    ex:teachesAt ex:faculty3 ;
+    ex:givenName "Vojtech"@en ;
+    ex:familyName "Mraz"@en .
+
+# Instances of Research Project
+ex:researchProject1 a ex:ResearchProject ;
+    ex:projectTitle "AI for Climate Change"@en ;
+    ex:projectDescription "Research on AI models for climate action"@en ;
+    ex:leads ex:faculty1 .
+
+ex:researchProject2 a ex:ResearchProject ;
+    ex:projectTitle "Art History Analysis"@en ;
+    ex:projectDescription "Digital tools for art history"@en ;
+    ex:leads ex:faculty2 .
+
+ex:researchProject3 a ex:ResearchProject ;
+    ex:projectTitle "Sustainable Engineering"@en ;
+    ex:projectDescription "Research on sustainable engineering practices"@en ;
+    ex:leads ex:faculty3 .

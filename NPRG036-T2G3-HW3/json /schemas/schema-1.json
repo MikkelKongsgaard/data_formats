@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "University Data Schema",
+  "type": "object",
+  "properties": {
+    "university": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "numberOfStudents": { "type": "integer", "minimum": 0 },
+        "numberOfTeachers": { "type": "integer", "minimum": 0 },
+        "email": {
+          "type": "array",
+          "items": { "type": "string", "format": "email" }
+        },
+        "faculties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "numberOfStudents": { "type": "integer", "minimum": 0 },
+              "numberOfTeachers": { "type": "integer", "minimum": 0 },
+              "canteen": {
+                "type": "object",
+                "properties": {
+                  "menu": { "type": "string" },
+                  "capacity": { "type": "integer", "minimum": 0 }
+                },
+                "required": ["menu", "capacity"]
+              },
+              "teachers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "teacherID": { "type": "string" },
+                    "givenName": { "type": "string" },
+                    "familyName": { "type": "string" }
+                  },
+                  "required": ["teacherID", "givenName", "familyName"]
+                }
+              },
+              "students": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "studentID": { "type": "string" },
+                    "givenName": { "type": "string" },
+                    "familyName": { "type": "string" }
+                  },
+                  "required": ["studentID", "givenName", "familyName"]
+                }
+              },
+              "researchProjects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "title": { "type": "string" },
+                    "description": { "type": "string" }
+                  },
+                  "required": ["title", "description"]
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": ["name", "numberOfStudents", "numberOfTeachers", "faculties"]
+    }
+  }
+}
