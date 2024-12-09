@@ -1,0 +1,172 @@
+{
+    "@context": "http://www.w3.org/ns/csvw",
+    "tables": [
+      {
+        "url": "data-1.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "UniversityID", "titles": "UniversityID", "datatype": "string"},
+            {"name": "name", "titles": "name", "datatype": "string", "lang": "en"},
+            {"name": "number_of_faculties", "titles": "number_of_faculties", "datatype": "integer"},
+            {"name": "number_of_teachers", "titles": "number_of_teachers", "datatype": "integer"}
+          ],
+          "primaryKey": "UniversityID"
+        }
+      },
+      {
+        "url": "data-2.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "email", "titles": "email", "datatype": "string"},
+            {"name": "UniversityID", "titles": "UniversityID", "datatype": "string"}
+          ],
+          "primaryKey": "email",
+          "foreignKeys": [
+            {
+              "columnReference": "UniversityID",
+              "reference": {"resource": "data-1.csv", "columnReference": "UniversityID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-3.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "FacultyID", "titles": "FacultyID", "datatype": "string"},
+            {"name": "name", "titles": "name", "datatype": "string", "lang": "en"},
+            {"name": "number_of_students", "titles": "number_of_students", "datatype": "integer"},
+            {"name": "number_of_teachers", "titles": "number_of_teachers", "datatype": "integer"},
+            {"name": "UniversityID", "titles": "UniversityID", "datatype": "string"}
+          ],
+          "primaryKey": "FacultyID",
+          "foreignKeys": [
+            {
+              "columnReference": "UniversityID",
+              "reference": {"resource": "data-1.csv", "columnReference": "UniversityID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-4.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "CanteenID", "titles": "CanteenID", "datatype": "string"},
+            {"name": "menu", "titles": "menu", "datatype": "string", "lang": "en"},
+            {"name": "capacity", "titles": "capacity", "datatype": "integer"},
+            {"name": "FacultyID", "titles": "FacultyID", "datatype": "string"}
+          ],
+          "primaryKey": "CanteenID",
+          "foreignKeys": [
+            {
+              "columnReference": "FacultyID",
+              "reference": {"resource": "data-3.csv", "columnReference": "FacultyID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-5.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "ProjectID", "titles": "ProjectID", "datatype": "string"},
+            {"name": "Title", "titles": "Title", "datatype": "string", "lang": "en"},
+            {"name": "Description", "titles": "Description", "datatype": "string", "lang": "en"},
+            {"name": "FacultyID", "titles": "FacultyID", "datatype": "string"}
+          ],
+          "primaryKey": "ProjectID",
+          "foreignKeys": [
+            {
+              "columnReference": "FacultyID",
+              "reference": {"resource": "data-3.csv", "columnReference": "FacultyID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-6.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "TeacherID", "datatype": "string"},
+            {"name": "PersonID", "datatype": "string"}
+          ],
+          "primaryKey": "TeacherID",
+          "foreignKeys": [
+            {
+              "columnReference": "PersonID",
+              "reference": {"resource": "data-10.csv", "columnReference": "PersonID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-7.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "TeacherID", "datatype": "string"},
+            {"name": "FacultyID", "datatype": "string"}
+          ],
+          "primaryKey": ["TeacherID", "FacultyID"],
+          "foreignKeys": [
+            {
+              "columnReference": "TeacherID",
+              "reference": {"resource": "data-6.csv", "columnReference": "TeacherID"}
+            },
+            {
+              "columnReference": "FacultyID",
+              "reference": {"resource": "data-3.csv", "columnReference": "FacultyID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-8.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "StudentID", "datatype": "string"},
+            {"name": "PersonID", "datatype": "string"}
+          ],
+          "primaryKey": "StudentID",
+          "foreignKeys": [
+            {
+              "columnReference": "PersonID",
+              "reference": {"resource": "data-10.csv", "columnReference": "PersonID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-9.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "StudentID", "datatype": "string"},
+            {"name": "FacultyID", "datatype": "string"}
+          ],
+          "primaryKey": ["StudentID", "FacultyID"],
+          "foreignKeys": [
+            {
+              "columnReference": "StudentID",
+              "reference": {"resource": "data-8.csv", "columnReference": "StudentID"}
+            },
+            {
+              "columnReference": "FacultyID",
+              "reference": {"resource": "data-3.csv", "columnReference": "FacultyID"}
+            }
+          ]
+        }
+      },
+      {
+        "url": "data-10.csv",
+        "tableSchema": {
+          "columns": [
+            {"name": "PersonID", "datatype": "string"},
+            {"name": "givenName", "datatype": "string", "lang": "en"},
+            {"name": "familyName", "datatype": "string", "lang": "en"}
+          ],
+          "primaryKey": ["PersonID"]
+        }
+      }
+    ]
+  }
+  
