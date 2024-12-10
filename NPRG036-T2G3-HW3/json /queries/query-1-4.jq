@@ -1,1 +1,1 @@
-.faculties | map(.numberOfFacultyStudents) | add
+.["@graph"] | map(select(.["@type"] == "ex:Faculty")) | map(.numberOfFacultyStudents) | add

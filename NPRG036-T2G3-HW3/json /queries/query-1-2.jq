@@ -1,1 +1,1 @@
-.faculties[] | select(.numberOfFacultyStudents > 400) | .teachers[] | {givenName, familyName}
+.["@graph"][]| select(.givenName != null) |.givenName.["@value"] + " " +.familyName.["@value"]

@@ -1,1 +1,1 @@
-.faculties[] | select(.canteen.capacity > 90) | .facultyName
+.["@graph"] | map(select(.["@type"] == "ex:Canteen") | {canteenName: .["@id"], menu, capacity})

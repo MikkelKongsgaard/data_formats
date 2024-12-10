@@ -1,90 +1,103 @@
-PREFIX ex: <http://example.org/vocabulary/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+2024-12-10T16:45:53.974187640Z main ERROR Reconfiguration failed: No configuration found for '30946e09' at 'null' in 'null'
+PREFIX ex:  <http://example.org/vocabulary/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-ex:canteen1  a       ex:Canteen;
-        ex:capacity  100;
-        ex:menu      "Pizza, Pasta, Salad" .
+ex:uni3  rdf:type             ex:University;
+        ex:numberOfFaculties  4;
+        ex:numberOfTeachers   450;
+        ex:universityName     "VSE"@en .
 
-ex:canteen2  a       ex:Canteen;
-        ex:capacity  50;
-        ex:menu      "Burger, Fries, Milkshake" .
+ex:uni2  rdf:type             ex:University;
+        ex:numberOfFaculties  5;
+        ex:numberOfTeachers   600;
+        ex:universityName     "CVUT"@en .
 
-ex:faculty1  a                      ex:Faculty;
-        ex:facultyName              "Faculty of Computer Science";
-        ex:hasCanteen               ex:canteen1;
-        ex:hasResearchProject       ex:researchProject1;
-        ex:hasStudent               ex:student1;
-        ex:hasStudent               ex:student2;
-        ex:hasTeacher               ex:teacher1;
-        ex:hasTeacher               ex:teacher2;
-        ex:numberOfFacultyStudents  500;
-        ex:numberOfFacultyTeachers  50 .
+ex:uni1  rdf:type             ex:University;
+        ex:email              <mailto:admissions@cuni.edu> , <mailto:info@cuni.edu>;
+        ex:numberOfFaculties  3;
+        ex:numberOfTeachers   500;
+        ex:universityName     "CUNI"@en .
 
-ex:faculty2  a                      ex:Faculty;
-        ex:facultyName              "Faculty of Mathematics";
-        ex:hasCanteen               ex:canteen2;
-        ex:hasResearchProject       ex:researchProject2;
-        ex:hasStudent               ex:student3;
-        ex:hasStudent               ex:student4;
-        ex:hasTeacher               ex:teacher3;
-        ex:hasTeacher               ex:teacher4;
-        ex:numberOfFacultyStudents  300;
-        ex:numberOfFacultyTeachers  30 .
+ex:teacher3  rdf:type  ex:Teacher;
+        ex:familyName  "Mraz"@en;
+        ex:givenName   "Vojtech"@en;
+        ex:teacherId   "T003";
+        ex:teachesAt   ex:faculty3 .
 
-ex:researchProject1  a         ex:ResearchProject;
-        ex:projectDescription  "Research on artificial intelligence.";
-        ex:projectTitle        "AI Research" .
+ex:teacher2  rdf:type  ex:Teacher;
+        ex:familyName  "Cerny"@en;
+        ex:givenName   "Filip"@en;
+        ex:teacherId   "T002";
+        ex:teachesAt   ex:faculty2 .
 
-ex:researchProject2  a         ex:ResearchProject;
-        ex:projectDescription  "Research on mathematical models.";
-        ex:projectTitle        "Math Research" .
+ex:teacher1  rdf:type  ex:Teacher;
+        ex:familyName  "Zima"@en;
+        ex:givenName   "Marek"@en;
+        ex:teacherId   "T001";
+        ex:teachesAt   ex:faculty1 .
 
-ex:student1  a         ex:Student;
-        ex:familyName  "Novak";
-        ex:givenName   "Jan";
-        ex:studentId   "S001" .
-
-ex:student2  a         ex:Student;
-        ex:familyName  "Kralova";
-        ex:givenName   "Eva";
-        ex:studentId   "S002" .
-
-ex:student3  a         ex:Student;
-        ex:familyName  "Novotny";
-        ex:givenName   "Jiri";
+ex:student3  rdf:type  ex:Student;
+        ex:enrolledIn  ex:faculty3;
+        ex:familyName  "Misuk"@en;
+        ex:givenName   "Andrea"@en;
         ex:studentId   "S003" .
 
-ex:student4  a         ex:Student;
-        ex:familyName  "Kralova";
-        ex:givenName   "Eva";
-        ex:studentId   "S004" .
+ex:student2  rdf:type  ex:Student;
+        ex:enrolledIn  ex:faculty2;
+        ex:familyName  "Zima"@en;
+        ex:givenName   "Petra"@en;
+        ex:studentId   "S002" .
 
-ex:teacher1  a         ex:Teacher;
-        ex:familyName  "Zima";
-        ex:givenName   "Marek";
-        ex:teacherId   "T001" .
+ex:student1  rdf:type  ex:Student;
+        ex:enrolledIn  ex:faculty1;
+        ex:familyName  "Most"@en;
+        ex:givenName   "Marek"@en;
+        ex:studentId   "S001" .
 
-ex:teacher2  a         ex:Teacher;
-        ex:familyName  "Pavel";
-        ex:givenName   "Petr";
-        ex:teacherId   "T002" .
+ex:project3  rdf:type          ex:ResearchProject;
+        ex:leads               ex:faculty3;
+        ex:projectDescription  "Research on sustainable engineering practices"@en;
+        ex:projectTitle        "Sustainable Engineering"@en .
 
-ex:teacher3  a         ex:Teacher;
-        ex:familyName  "Hruska";
-        ex:givenName   "Jana";
-        ex:teacherId   "T003" .
+ex:project2  rdf:type          ex:ResearchProject;
+        ex:leads               ex:faculty2;
+        ex:projectDescription  "Digital tools for art history"@en;
+        ex:projectTitle        "Art History Analysis"@en .
 
-ex:teacher4  a         ex:Teacher;
-        ex:familyName  "Kral";
-        ex:givenName   "Pavel";
-        ex:teacherId   "T004" .
+ex:project1  rdf:type          ex:ResearchProject;
+        ex:leads               ex:faculty1;
+        ex:projectDescription  "Research on AI models for climate action"@en;
+        ex:projectTitle        "AI for Climate"@en .
 
-ex:university1  a             ex:University;
-        ex:email              "info@exampleuniversity.edu";
-        ex:email              "contact@exampleuniversity.edu";
-        ex:hasFaculty         ex:faculty1;
-        ex:hasFaculty         ex:faculty2;
-        ex:numberOfFaculties  2;
-        ex:numberOfTeachers   500;
-        ex:universityName     "Example University" .
+ex:faculty3  rdf:type               ex:Faculty;
+        ex:facultyName              "Faculty of Engineering"@en;
+        ex:facultyOf                ex:uni3;
+        ex:numberOfFacultyStudents  1800;
+        ex:numberOfFacultyTeachers  90 .
+
+ex:faculty2  rdf:type               ex:Faculty;
+        ex:facultyName              "Faculty of History"@en;
+        ex:facultyOf                ex:uni2;
+        ex:numberOfFacultyStudents  1500;
+        ex:numberOfFacultyTeachers  75 .
+
+ex:faculty1  rdf:type               ex:Faculty;
+        ex:facultyName              "MFF"@en;
+        ex:facultyOf                ex:uni1;
+        ex:numberOfFacultyStudents  2000;
+        ex:numberOfFacultyTeachers  100 .
+
+ex:canteen3  rdf:type  ex:Canteen;
+        ex:belongsTo  ex:faculty3;
+        ex:capacity   100;
+        ex:menu       "Burgers, Fries, Coffee"@en .
+
+ex:canteen2  rdf:type  ex:Canteen;
+        ex:belongsTo  ex:faculty2;
+        ex:capacity   150;
+        ex:menu       "Sushi, Rice Bowls, Noodles"@en .
+
+ex:canteen1  rdf:type  ex:Canteen;
+        ex:belongsTo  ex:faculty1;
+        ex:capacity   200;
+        ex:menu       "Pizza, Salad, Soup"@en .
