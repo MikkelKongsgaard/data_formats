@@ -1,4 +1,4 @@
 CanteenID,menu,capacity,FacultyID
-CAN1,"Pizza, Salad, Soup",200,FAC1
-CAN2,"Sushi, Rice Bowls, Noodles",150,FAC2
-CAN3,"Burgers, Fries, Coffee",100,FAC3
+canteen1,"Pizza, Salad, Soup",200,faculty1
+canteen2,"Sushi, Rice Bowls, Noodles",150,faculty2
+canteen3,"Burgers, Fries, Coffee",100,faculty3

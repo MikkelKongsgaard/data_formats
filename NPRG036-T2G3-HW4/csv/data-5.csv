@@ -1,4 +1,4 @@
 ProjectID,Title,Description,FacultyID
-PROJ1,"AI for Climate Change","Research on AI models for climate action",FAC1
-PROJ2,"Art History Analysis","Digital tools for art history",FAC2
-PROJ3,"Sustainable Engineering","Research on sustainable engineering practices",FAC3
+researchProject1,"AI for Climate Change","Research on AI models for climate action",faculty1
+researchProject2,"Art History Analysis","Digital tools for art history",faculty2
+researchProject3,"Sustainable Engineering","Research on sustainable engineering practices",faculty3

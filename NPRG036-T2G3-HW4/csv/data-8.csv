@@ -1,4 +1,4 @@
-StudentID,PersonID
-S001,PER4
-S002,PER5
-S003,PER6
+StudentID,ID,FacultyID,givenName,familyName
+student1,"S001",faculty1,Marek,Most
+student2,"S002",faculty2,Petra,Zima
+student3,"S003",faculty3,Andrea,Misuk

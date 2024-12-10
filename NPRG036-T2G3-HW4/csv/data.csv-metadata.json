@@ -1,96 +1,130 @@
 {
-  "@context": "http://www.w3.org/ns/csvw",
+  "@id": "metadata.json",
+  "@context": [
+    "http://www.w3.org/ns/csvw",
+    {
+      "@language": "en"
+    }
+  ],
   "tables": [
     {
+      "@type": "Table",
       "url": "data-1.csv",
       "tableSchema": {
-        "aboutUrl": "http://example.org/university/{UniversityID}",
+        "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{UniversityID}",
         "columns": [
           {
-            "name": "UniversityID",
-            "propertyUrl": "http://example.org/vocabulary/universityID",
-            "datatype": "string"
-          },
-          {
+            "@type": "Column",
             "name": "name",
-            "propertyUrl": "http://example.org/vocabulary/universityName",
+            "titles": "name",
+            "dc:description": "The name of the university",
+            "required": true,
             "datatype": "string",
-            "lang": "en"
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/universityName"
           },
           {
+            "@type": "Column",
             "name": "number_of_faculties",
-            "propertyUrl": "http://example.org/vocabulary/numberOfFaculties",
-            "datatype": "integer"
+            "titles": "number_of_faculties",
+            "dc:description": "The number of faculties in the university",
+            "required": true,
+            "datatype": "integer",
+            "propertyUrl": "http://example.org/vocabulary/numberOfFaculties"
           },
           {
+            "@type": "Column",
             "name": "number_of_teachers",
-            "propertyUrl": "http://example.org/vocabulary/numberOfTeachers",
-            "datatype": "integer"
+            "titles": "number_of_teachers",
+            "dc:description": "The number of teachers in the university",
+            "required": true,
+            "datatype": "integer",
+            "propertyUrl": "http://example.org/vocabulary/numberOfTeachers"
+          },
+          {
+            "@type": "Column",
+            "name": "UniversityID",
+            "titles": "UniversityID",
+            "dc:description": "The ID of the university",
+            "required": true,
+            "datatype": "string",
+            "suppressOutput": true,
+            "propertyUrl": "http://example.org/vocabulary/universityID"
+          },
+          {
+            "@type": "Column",
+            "aboutUrl": "http://example.org/vocabulary/{UniversityID}",
+            "propertyUrl": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/University",
+            "virtual": true
           }
         ],
         "primaryKey": "UniversityID"
       }
     },
     {
-      "url": "data-2.csv",
-      "tableSchema": {
-        "aboutUrl": "http://example.org/university/{UniversityID}/email/{email}",
-        "columns": [
-          {
-            "name": "email",
-            "propertyUrl": "http://example.org/vocabulary/email",
-            "datatype": "string"
-          },
-          {
-            "name": "UniversityID",
-            "propertyUrl": "http://example.org/vocabulary/universityID",
-            "datatype": "string",
-            "valueUrl": "http://example.org/university/{UniversityID}"
-          }
-        ],
-        "primaryKey": "email",
-        "foreignKeys": [
-          {
-            "columnReference": "UniversityID",
-            "reference": {
-              "resource": "data-1.csv",
-              "columnReference": "UniversityID"
-            }
-          }
-        ]
-      }
-    },
-    {
+      "@type": "Table",
       "url": "data-3.csv",
       "tableSchema": {
-        "aboutUrl": "http://example.org/faculty/{FacultyID}",
+        "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{FacultyID}",
         "columns": [
           {
-            "name": "FacultyID",
-            "propertyUrl": "http://example.org/vocabulary/facultyID",
-            "datatype": "string"
-          },
-          {
+            "@type": "Column",
             "name": "name",
-            "propertyUrl": "http://example.org/vocabulary/facultyName",
+            "titles": "Name",
+            "dc:description": "The name of the faculty",
+            "required": true,
             "datatype": "string",
-            "lang": "en"
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/facultyName"
           },
           {
+            "@type": "Column",
             "name": "number_of_students",
-            "propertyUrl": "http://example.org/vocabulary/numberOfFacultyStudents",
-            "datatype": "integer"
+            "titles": "Number of Students",
+            "dc:description": "The number of students in the faculty",
+            "required": true,
+            "datatype": "integer",
+            "propertyUrl": "http://example.org/vocabulary/numberOfFacultyStudents"
           },
           {
+            "@type": "Column",
             "name": "number_of_teachers",
-            "propertyUrl": "http://example.org/vocabulary/numberOfFacultyTeachers",
-            "datatype": "integer"
+            "titles": "Number of Teachers",
+            "dc:description": "The number of teachers in the faculty",
+            "required": true,
+            "datatype": "integer",
+            "propertyUrl": "http://example.org/vocabulary/numberOfFacultyTeachers"
           },
           {
+            "@type": "Column",
             "name": "UniversityID",
-            "propertyUrl": "http://example.org/vocabulary/universityID",
+            "titles": "UniversityID",
+            "dc:description": "The ID of the university the faculty belongs to",
+            "required": true,
             "datatype": "string",
-            "valueUrl": "http://example.org/university/{UniversityID}"
+            "propertyUrl": "http://example.org/vocabulary/facultyOf",
+            "valueUrl": "http://example.org/vocabulary/{UniversityID}"
+          },
+          {
+            "@type": "Column",
+            "name": "FacultyID",
+            "titles": "FacultyID",
+            "suppressOutput": true,
+            "dc:description": "The ID of the faculty",
+            "required": true,
+            "virtual": true,
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/facultyID"
+          },
+          {
+            "@type": "Column",
+            "aboutUrl": "http://example.org/vocabulary/{FacultyID}",
+            "propertyUrl": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/Faculty",
+            "virtual": true
           }
         ],
         "primaryKey": "FacultyID",
@@ -106,31 +140,57 @@
       }
     },
     {
+      "@type": "Table",
       "url": "data-4.csv",
       "tableSchema": {
-        "aboutUrl": "http://example.org/canteen/{CanteenID}",
+        "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{CanteenID}",
         "columns": [
           {
+            "@type": "Column",
             "name": "CanteenID",
-            "propertyUrl": "http://example.org/vocabulary/canteenID",
-            "datatype": "string"
+            "titles": "CanteenID",
+            "dc:description": "The ID of the canteen",
+            "required": true,
+            "datatype": "string",
+            "suppressOutput": true,
+            "propertyUrl": "http://example.org/vocabulary/canteenID"
           },
           {
+            "@type": "Column",
             "name": "menu",
-            "propertyUrl": "http://example.org/vocabulary/menu",
+            "titles": "Menu",
+            "dc:description": "The menu served in the canteen",
+            "required": true,
             "datatype": "string",
-            "lang": "en"
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/menu"
           },
           {
+            "@type": "Column",
             "name": "capacity",
-            "propertyUrl": "http://example.org/vocabulary/capacity",
-            "datatype": "integer"
+            "titles": "Capacity",
+            "dc:description": "The seating capacity of the canteen",
+            "required": true,
+            "datatype": "integer",
+            "propertyUrl": "http://example.org/vocabulary/capacity"
           },
           {
+            "@type": "Column",
             "name": "FacultyID",
-            "propertyUrl": "http://example.org/vocabulary/facultyID",
+            "titles": "FacultyID",
+            "dc:description": "The ID of the faculty the canteen belongs to",
+            "required": true,
             "datatype": "string",
-            "valueUrl": "http://example.org/faculty/{FacultyID}"
+            "propertyUrl": "http://example.org/vocabulary/belongsTo",
+            "valueUrl": "http://example.org/vocabulary/{FacultyID}"
+          },
+          {
+            "@type": "Column",
+            "aboutUrl": "http://example.org/vocabulary/{CanteenID}",
+            "propertyUrl": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/Canteen",
+            "virtual": true
           }
         ],
         "primaryKey": "CanteenID",
@@ -146,32 +206,58 @@
       }
     },
     {
+      "@type": "Table",
       "url": "data-5.csv",
       "tableSchema": {
-        "aboutUrl": "http://example.org/project/{ProjectID}",
+        "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{ProjectID}",
         "columns": [
           {
+            "@type": "Column",
             "name": "ProjectID",
-            "propertyUrl": "http://example.org/vocabulary/projectID",
-            "datatype": "string"
+            "titles": "ProjectID",
+            "dc:description": "The ID of the research project",
+            "suppressOutput": true,
+            "required": true,
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/projectID"
           },
           {
+            "@type": "Column",
             "name": "Title",
-            "propertyUrl": "http://example.org/vocabulary/projectTitle",
+            "titles": "Title",
+            "dc:description": "The title of the research project",
+            "required": true,
             "datatype": "string",
-            "lang": "en"
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/projectTitle"
           },
           {
+            "@type": "Column",
             "name": "Description",
-            "propertyUrl": "http://example.org/vocabulary/projectDescription",
+            "titles": "Description",
+            "dc:description": "The description of the research project",
+            "required": true,
             "datatype": "string",
-            "lang": "en"
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/projectDescription"
           },
           {
+            "@type": "Column",
             "name": "FacultyID",
-            "propertyUrl": "http://example.org/vocabulary/facultyID",
+            "titles": "FacultyID",
+            "dc:description": "The ID of the faculty leading the research project",
+            "required": true,
             "datatype": "string",
-            "valueUrl": "http://example.org/faculty/{FacultyID}"
+            "propertyUrl": "http://example.org/vocabulary/leads",
+            "valueUrl": "http://example.org/vocabulary/{FacultyID}"
+          },
+          {
+            "@type": "Column",
+            "aboutUrl": "http://example.org/vocabulary/{ProjectID}",
+            "propertyUrl": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/ResearchProject",
+            "virtual": true
           }
         ],
         "primaryKey": "ProjectID",
@@ -187,154 +273,137 @@
       }
     },
     {
-      "url": "data-10.csv",
-      "tableSchema": {
-        "aboutUrl": "http://example.org/person/{PersonID}",
-        "columns": [
-          {
-            "name": "PersonID",
-            "propertyUrl": "http://example.org/vocabulary/personID",
-            "datatype": "string"
-          },
-          {
-            "name": "givenName",
-            "propertyUrl": "http://example.org/vocabulary/givenName",
-            "datatype": "string",
-            "lang": "en"
-          },
-          {
-            "name": "familyName",
-            "propertyUrl": "http://example.org/vocabulary/familyName",
-            "datatype": "string",
-            "lang": "en"
-          }
-        ],
-        "primaryKey": "PersonID"
-      }
-    },
-    {
+      "@type": "Table",
       "url": "data-6.csv",
       "tableSchema": {
-        "aboutUrl": "http://example.org/teacher/{TeacherID}",
+        "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/teacher{TeacherID}",
         "columns": [
           {
+            "@type": "Column",
             "name": "TeacherID",
+            "titles": "TeacherID",
+            "dc:description": "Unique ID of the teacher",
+            "required": true,
+            "suppressOutput": true,
+            "datatype": "integer"
+          },
+          {
+            "@type": "Column",
+            "name": "ID",
+            "titles": "ID",
+            "dc:description": "Custom formatted teacher ID",
+            "required": true,
             "datatype": "string",
             "propertyUrl": "http://example.org/vocabulary/teacherID"
           },
           {
-            "name": "PersonID",
-            "datatype": "string",
-            "propertyUrl": "http://example.org/vocabulary/personID",
-            "valueUrl": "http://example.org/person/{PersonID}"
-          }
-        ],
-        "primaryKey": "TeacherID",
-        "foreignKeys": [
-          {
-            "columnReference": "PersonID",
-            "reference": {
-              "resource": "data-10.csv",
-              "columnReference": "PersonID"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "url": "data-7.csv",
-      "tableSchema": {
-        "aboutUrl": "http://example.org/teachesAt/{TeacherID}/{FacultyID}",
-        "columns": [
-          {
-            "name": "TeacherID",
-            "datatype": "string",
-            "propertyUrl": "http://example.org/vocabulary/teacherID",
-            "valueUrl": "http://example.org/teacher/{TeacherID}"
-          },
-          {
+            "@type": "Column",
             "name": "FacultyID",
+            "titles": "FacultyID",
+            "dc:description": "The faculty the teacher belongs to",
+            "required": true,
             "datatype": "string",
-            "propertyUrl": "http://example.org/vocabulary/facultyID",
-            "valueUrl": "http://example.org/faculty/{FacultyID}"
-          }
-        ],
-        "primaryKey": ["TeacherID", "FacultyID"],
-        "foreignKeys": [
-          {
-            "columnReference": "TeacherID",
-            "reference": {
-              "resource": "data-6.csv",
-              "columnReference": "TeacherID"
-            }
+            "propertyUrl": "http://example.org/vocabulary/teachesAt",
+            "valueUrl": "http://example.org/vocabulary/{FacultyID}"
           },
           {
-            "columnReference": "FacultyID",
-            "reference": {
-              "resource": "data-3.csv",
-              "columnReference": "FacultyID"
-            }
+            "@type": "Column",
+            "name": "givenName",
+            "titles": "Given Name",
+            "dc:description": "The given name of the teacher",
+            "required": true,
+            "datatype": "string",
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/givenName"
+          },
+          {
+            "@type": "Column",
+            "name": "familyName",
+            "titles": "Family Name",
+            "dc:description": "The family name of the teacher",
+            "required": true,
+            "datatype": "string",
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/familyName"
+          },
+          {
+            "@type": "Column",
+            "aboutUrl": "http://example.org/vocabulary/teacher{TeacherID}",
+            "propertyUrl": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/Teacher",
+            "virtual": true
           }
-        ]
+        ],
+        "primaryKey": "TeacherID"
       }
     },
     {
+      "@type": "Table",
       "url": "data-8.csv",
       "tableSchema": {
-        "aboutUrl": "http://example.org/student/{StudentID}",
+        "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{StudentID}",
         "columns": [
           {
+            "@type": "Column",
             "name": "StudentID",
+            "titles": "StudentID",
+            "dc:description": "Unique ID of the student",
+            "required": true,
+            "suppressOutput": true,
+            "datatype": "string"
+          },
+          {
+            "@type": "Column",
+            "name": "ID",
+            "titles": "ID",
+            "dc:description": "Custom formatted student ID",
+            "required": true,
             "datatype": "string",
             "propertyUrl": "http://example.org/vocabulary/studentID"
           },
           {
-            "name": "PersonID",
+            "@type": "Column",
+            "name": "FacultyID",
+            "titles": "FacultyID",
+            "dc:description": "The faculty the student is enrolled in",
+            "required": true,
             "datatype": "string",
-            "propertyUrl": "http://example.org/vocabulary/personID",
-            "valueUrl": "http://example.org/person/{PersonID}"
+            "propertyUrl": "http://example.org/vocabulary/enrolledIn",
+            "valueUrl": "http://example.org/vocabulary/{FacultyID}"
+          },
+          {
+            "@type": "Column",
+            "name": "givenName",
+            "titles": "Given Name",
+            "dc:description": "The given name of the student",
+            "required": true,
+            "datatype": "string",
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/givenName"
+          },
+          {
+            "@type": "Column",
+            "name": "familyName",
+            "titles": "Family Name",
+            "dc:description": "The family name of the student",
+            "required": true,
+            "datatype": "string",
+            "lang": "en",
+            "propertyUrl": "http://example.org/vocabulary/familyName"
+          },
+          {
+            "@type": "Column",
+            "aboutUrl": "http://example.org/vocabulary/{StudentID}",
+            "propertyUrl": "rdf:type",
+            "valueUrl": "http://example.org/vocabulary/Student",
+            "virtual": true
           }
         ],
         "primaryKey": "StudentID",
         "foreignKeys": [
           {
-            "columnReference": "PersonID",
-            "reference": {
-              "resource": "data-10.csv",
-              "columnReference": "PersonID"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "url": "data-9.csv",
-      "tableSchema": {
-        "aboutUrl": "http://example.org/enrolledIn/{StudentID}/{FacultyID}",
-        "columns": [
-          {
-            "name": "StudentID",
-            "datatype": "string",
-            "propertyUrl": "http://example.org/vocabulary/studentID",
-            "valueUrl": "http://example.org/student/{StudentID}"
-          },
-          {
-            "name": "FacultyID",
-            "datatype": "string",
-            "propertyUrl": "http://example.org/vocabulary/facultyID",
-            "valueUrl": "http://example.org/faculty/{FacultyID}"
-          }
-        ],
-        "primaryKey": ["StudentID", "FacultyID"],
-        "foreignKeys": [
-          {
-            "columnReference": "StudentID",
-            "reference": {
-              "resource": "data-8.csv",
-              "columnReference": "StudentID"
-            }
-          },
-          {
             "columnReference": "FacultyID",
             "reference": {
               "resource": "data-3.csv",
@@ -343,6 +412,45 @@
           }
         ]
       }
-    }
+    },
+    {
+      "@type": "Table",
+      "url": "data-2.csv",
+      "tableSchema": {
+        "@type": "Schema",
+        "aboutUrl": "http://example.org/vocabulary/{UniversityID}",
+        "columns": [
+          {
+            "@type": "Column",
+            "name": "email",
+            "titles": "Email",
+            "dc:description": "Email addresses associated with universities",
+            "required": true,
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/email",
+            "valueUrl": "mailto:{email}"
+          },
+          {
+            "@type": "Column",
+            "name": "UniversityID",
+            "titles": "University ID",
+            "dc:description": "ID of the university",
+            "required": true,
+            "suppressOutput": true,
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/universityID"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "columnReference": "UniversityID",
+            "reference": {
+              "resource": "data-1.csv",
+              "columnReference": "UniversityID"
+            }
+          }
+        ]
+      }
+    }          
   ]
 }

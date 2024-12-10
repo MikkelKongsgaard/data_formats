@@ -1,4 +1,4 @@
-FacultyID,name,number_of_students,number_of_teachers,UniversityID
-FAC1,"MFF",2000,100,UNI1
-FAC2,"Faculty of History",1500,75,UNI2
-FAC3,"Faculty of Engineering",1800,90,UNI3
+name,number_of_students,number_of_teachers,UniversityID,FacultyID
+"MFF",2000,100,uni1,faculty1
+"Faculty of History",1500,75,uni2,faculty2
+"Faculty of Engineering",1800,90,uni3,faculty3

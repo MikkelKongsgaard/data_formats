@@ -1,4 +1,4 @@
-UniversityID,name,number_of_faculties,number_of_teachers
-UNI1,"CUNI",3,500
-UNI2,"CVUT",5,600
-UNI3,"VSE",4,450
+name,number_of_faculties,number_of_teachers,UniversityID
+"CUNI",3,500,uni1
+"CVUT",5,600,uni2
+"VSE",4,450,uni3

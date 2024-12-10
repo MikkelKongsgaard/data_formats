@@ -1,4 +1,4 @@
-TeacherID,PersonID
-T001,PER1
-T002,PER2
-T003,PER3
+TeacherID,ID,FacultyID,givenName,familyName
+1,"T001",faculty1,Martin,Jakov
+2,"T002",faculty2,Filip,Cerny
+3,"T003",faculty3,Vojtech,Mraz
