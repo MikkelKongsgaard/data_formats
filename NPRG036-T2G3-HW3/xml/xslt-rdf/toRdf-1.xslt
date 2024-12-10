@@ -1,16 +1,18 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-xmlns:ex="http://example.org/university#"
-xmlns:foaf="http://xmlns.com/foaf/0.1/">
+xmlns:ex="http://example.org/vocabulary/"
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 
 <xsl:output method="text" indent="yes" />
 
 <!-- RDF Prefixes -->
 <xsl:template match="/">
+    <xsl:text>@prefix ex: &lt;http://example.org/vocabulary/&gt; .&#10;</xsl:text>
+    <xsl:text>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .&#10;</xsl:text>
+    <xsl:text>@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .&#10;</xsl:text>
     <xsl:text>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .&#10;</xsl:text>
-    <xsl:text>@prefix ex: &lt;http://example.org/university#&gt; .&#10;</xsl:text>
-    <xsl:text>@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .&#10;</xsl:text>
     <xsl:apply-templates/>
 </xsl:template>
 
