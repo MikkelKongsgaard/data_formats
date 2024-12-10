@@ -1,1 +1,1 @@
-.faculties[] | select(.numberOfFacultyTeachers > 40) | .researchProjects[] | {projectTitle, projectDescription}
+.["@graph"] | map(select(.["@type"] == "ex:ResearchProject") | .projectTitle["@value"])
