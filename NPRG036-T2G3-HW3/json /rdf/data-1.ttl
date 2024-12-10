@@ -1,8 +1,8 @@
-2024-12-10T16:45:53.974187640Z main ERROR Reconfiguration failed: No configuration found for '30946e09' at 'null' in 'null'
 PREFIX ex:  <http://example.org/vocabulary/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 ex:uni3  rdf:type             ex:University;
+        ex:email              <mailto:info@vse.cz> , <mailto:admin@vse.cz>;
         ex:numberOfFaculties  4;
         ex:numberOfTeachers   450;
         ex:universityName     "VSE"@en .
@@ -31,8 +31,8 @@ ex:teacher2  rdf:type  ex:Teacher;
         ex:teachesAt   ex:faculty2 .
 
 ex:teacher1  rdf:type  ex:Teacher;
-        ex:familyName  "Zima"@en;
-        ex:givenName   "Marek"@en;
+        ex:familyName  "Jakov"@en;
+        ex:givenName   "Martin"@en;
         ex:teacherId   "T001";
         ex:teachesAt   ex:faculty1 .
 
@@ -54,17 +54,17 @@ ex:student1  rdf:type  ex:Student;
         ex:givenName   "Marek"@en;
         ex:studentId   "S001" .
 
-ex:project3  rdf:type          ex:ResearchProject;
+ex:researchProject3  rdf:type  ex:ResearchProject;
         ex:leads               ex:faculty3;
         ex:projectDescription  "Research on sustainable engineering practices"@en;
         ex:projectTitle        "Sustainable Engineering"@en .
 
-ex:project2  rdf:type          ex:ResearchProject;
+ex:researchProject2  rdf:type  ex:ResearchProject;
         ex:leads               ex:faculty2;
         ex:projectDescription  "Digital tools for art history"@en;
         ex:projectTitle        "Art History Analysis"@en .
 
-ex:project1  rdf:type          ex:ResearchProject;
+ex:researchProject1  rdf:type  ex:ResearchProject;
         ex:leads               ex:faculty1;
         ex:projectDescription  "Research on AI models for climate action"@en;
         ex:projectTitle        "AI for Climate"@en .
