@@ -1,0 +1,106 @@
+@prefix ex: <http://example.org/vocabulary/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:canteen1 a ex:Canteen;
+  ex:belongsTo ex:faculty1;
+  ex:capacity 200;
+  ex:menu "Pizza, Salad, Soup"@en .
+
+ex:canteen2 a ex:Canteen;
+  ex:belongsTo ex:faculty2;
+  ex:capacity 150;
+  ex:menu "Sushi, Rice Bowls, Noodles"@en .
+
+ex:canteen3 a ex:Canteen;
+  ex:belongsTo ex:faculty3;
+  ex:capacity 100;
+  ex:menu "Burgers, Fries, Coffee"@en .
+
+ex:researchProject1 a ex:ResearchProject;
+  ex:leads ex:faculty1;
+  ex:projectDescription "Research on AI models for climate action"@en;
+  ex:projectTitle "AI for Climate Change"@en .
+
+ex:researchProject2 a ex:ResearchProject;
+  ex:leads ex:faculty2;
+  ex:projectDescription "Digital tools for art history"@en;
+  ex:projectTitle "Art History Analysis"@en .
+
+ex:researchProject3 a ex:ResearchProject;
+  ex:leads ex:faculty3;
+  ex:projectDescription "Research on sustainable engineering practices"@en;
+  ex:projectTitle "Sustainable Engineering"@en .
+
+ex:student1 a ex:Student;
+  ex:enrolledIn ex:faculty1;
+  ex:familyName "Most"@en;
+  ex:givenName "Marek"@en;
+  ex:studentID "S001" .
+
+ex:student2 a ex:Student;
+  ex:enrolledIn ex:faculty2;
+  ex:familyName "Zima"@en;
+  ex:givenName "Petra"@en;
+  ex:studentID "S002" .
+
+ex:student3 a ex:Student;
+  ex:enrolledIn ex:faculty3;
+  ex:familyName "Misuk"@en;
+  ex:givenName "Andrea"@en;
+  ex:studentID "S003" .
+
+ex:teacher1 a ex:Teacher;
+  ex:familyName "Jakov"@en;
+  ex:givenName "Martin"@en;
+  ex:teacherID "T001";
+  ex:teachesAt ex:faculty1 .
+
+ex:teacher2 a ex:Teacher;
+  ex:familyName "Cerny"@en;
+  ex:givenName "Filip"@en;
+  ex:teacherID "T002";
+  ex:teachesAt ex:faculty2 .
+
+ex:teacher3 a ex:Teacher;
+  ex:familyName "Mraz"@en;
+  ex:givenName "Vojtech"@en;
+  ex:teacherID "T003";
+  ex:teachesAt ex:faculty3 .
+
+ex:uni1 a ex:University;
+  ex:email <mailto:info@cuni.edu>,
+    <mailto:admissions@cuni.edu>;
+  ex:numberOfFaculties 3;
+  ex:numberOfTeachers 500;
+  ex:universityName "CUNI"@en .
+
+ex:uni2 a ex:University;
+  ex:numberOfFaculties 5;
+  ex:numberOfTeachers 600;
+  ex:universityName "CVUT"@en .
+
+ex:uni3 a ex:University;
+  ex:email <mailto:admin@vse.cz>,
+    <mailto:info@vse.cz>;
+  ex:numberOfFaculties 4;
+  ex:numberOfTeachers 450;
+  ex:universityName "VSE"@en .
+
+ex:faculty1 a ex:Faculty;
+  ex:facultyName "MFF"@en;
+  ex:facultyOf ex:uni1;
+  ex:numberOfFacultyStudents 2000;
+  ex:numberOfFacultyTeachers 100 .
+
+ex:faculty2 a ex:Faculty;
+  ex:facultyName "Faculty of History"@en;
+  ex:facultyOf ex:uni2;
+  ex:numberOfFacultyStudents 1500;
+  ex:numberOfFacultyTeachers 75 .
+
+ex:faculty3 a ex:Faculty;
+  ex:facultyName "Faculty of Engineering"@en;
+  ex:facultyOf ex:uni3;
+  ex:numberOfFacultyStudents 1800;
+  ex:numberOfFacultyTeachers 90 .
