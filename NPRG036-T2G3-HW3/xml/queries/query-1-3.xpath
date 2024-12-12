@@ -1,2 +1,2 @@
 (:names of students enrolled in faculty3:)
-/universities/students/student[enrolledIn = 'faculty3']/givenName
+/universities/university/students/student[enrolledIn = 'faculty3']/givenName
