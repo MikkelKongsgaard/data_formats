@@ -1,3 +1,2 @@
-(:retrieves faculties with more than 1500 students and their universities:)
-/universities/faculties/faculty[numberOfFacultyStudents > 1500]/facultyName | 
-/universities/university[@id = ../facultyOf]/universityName
+(:All university names and their total number of faculties :)
+/universities/university/universityName | /universities/university/numberOfFaculties

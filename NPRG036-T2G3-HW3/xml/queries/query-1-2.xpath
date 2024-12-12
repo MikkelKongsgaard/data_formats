@@ -1,2 +1,2 @@
 (:retrieves menu of canteens with a capacity greater than 100 :)
-/universities/canteens/canteen[capacity > 100]/menu 
+/universities/university/canteens/canteen[capacity > 100]/menu 

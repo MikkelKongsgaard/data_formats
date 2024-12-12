@@ -12,6 +12,54 @@
             <email>info@cuni.edu</email>
             <email>admissions@cuni.edu</email>
         </emails>
+        
+        <faculties>
+            <faculty id="faculty1">
+                <type>Faculty</type>
+                <facultyName xml:lang="en">MFF</facultyName>
+                <numberOfFacultyStudents>2000</numberOfFacultyStudents>
+                <numberOfFacultyTeachers>100</numberOfFacultyTeachers>
+                <facultyOf>uni1</facultyOf>
+            </faculty>
+        </faculties>
+        
+        <canteens>
+            <canteen id="canteen1">
+                <type>Canteen</type>
+                <menu xml:lang="en">Pizza, Salad, Soup</menu>
+                <capacity>200</capacity>
+                <belongsTo>faculty1</belongsTo>
+            </canteen>
+        </canteens>
+
+        <students>
+            <student id="student1">
+                <givenName xml:lang="en">Marek</givenName>
+                <familyName xml:lang="en">Most</familyName>
+                <type>Student</type>
+                <studentId>S001</studentId>
+                <enrolledIn>faculty1</enrolledIn>
+            </student>
+        </students>
+
+        <teachers>
+            <teacher id="teacher1">
+                <givenName xml:lang="en">Martin</givenName>
+                <familyName xml:lang="en">Jakov</familyName>
+                <type>Teacher</type>
+                <teacherId>T001</teacherId>
+                <teachesAt>faculty1</teachesAt>
+            </teacher>
+        </teachers>
+
+        <researchProjects>
+            <researchProject id="researchProject1">
+                <type>ResearchProject</type>
+                <projectTitle xml:lang="en">AI for Climate Change</projectTitle>
+                <projectDescription xml:lang="en">Research on AI models for climate action</projectDescription>
+                <leads>faculty1</leads>
+            </researchProject>
+        </researchProjects>
     </university>
 
     <university id="uni2">
@@ -20,8 +68,56 @@
         <numberOfFaculties>5</numberOfFaculties>
         <numberOfTeachers>600</numberOfTeachers>
         <emails></emails>
+
+        <faculties>
+            <faculty id="faculty2">
+                <type>Faculty</type>
+                <facultyName xml:lang="en">Faculty of History</facultyName>
+                <numberOfFacultyStudents>1500</numberOfFacultyStudents>
+                <numberOfFacultyTeachers>75</numberOfFacultyTeachers>
+                <facultyOf>uni2</facultyOf>
+            </faculty>
+        </faculties>
+        
+        <canteens>
+            <canteen id="canteen2">
+                <type>Canteen</type>
+                <menu xml:lang="en">Sushi, Rice Bowls, Noodles</menu>
+                <capacity>150</capacity>
+                <belongsTo>faculty2</belongsTo>
+            </canteen>
+        </canteens>
+
+        <students>
+            <student id="student2">
+                <givenName xml:lang="en">Petra</givenName>
+                <familyName xml:lang="en">Zima</familyName>
+                <type>Student</type>
+                <studentId>S002</studentId>
+                <enrolledIn>faculty2</enrolledIn>
+            </student>
+        </students>
+
+        <teachers>
+            <teacher id="teacher2">
+                <givenName xml:lang="en">Filip</givenName>
+                <familyName xml:lang="en">Cerny</familyName>
+                <type>Teacher</type>
+                <teacherId>T002</teacherId>
+                <teachesAt>faculty2</teachesAt>
+            </teacher>
+        </teachers>
+
+        <researchProjects>
+            <researchProject id="researchProject2">
+                <type>ResearchProject</type>
+                <projectTitle xml:lang="en">Art History Analysis</projectTitle>
+                <projectDescription xml:lang="en">Digital tools for art history</projectDescription>
+                <leads>faculty2</leads>
+            </researchProject>
+        </researchProjects>
     </university>
-    
+
     <university id="uni3">
         <type>University</type>
         <universityName xml:lang="en">VSE</universityName>
@@ -31,128 +127,54 @@
             <email>admin@vse.cz</email>
             <email>info@vse.cz</email>
         </emails>
+        
+        <faculties>
+            <faculty id="faculty3">
+                <type>Faculty</type>
+                <facultyName xml:lang="en">Faculty of Engineering</facultyName>
+                <numberOfFacultyStudents>1800</numberOfFacultyStudents>
+                <numberOfFacultyTeachers>90</numberOfFacultyTeachers>
+                <facultyOf>uni3</facultyOf>
+            </faculty>
+        </faculties>
+        
+        <canteens>
+            <canteen id="canteen3">
+                <type>Canteen</type>
+                <menu xml:lang="en">Burgers, Fries, Coffee</menu>
+                <capacity>100</capacity>
+                <belongsTo>faculty3</belongsTo>
+            </canteen>
+        </canteens>
+
+        <students>
+            <student id="student3">
+                <givenName xml:lang="en">Andrea</givenName>
+                <familyName xml:lang="en">Misuk</familyName>
+                <type>Student</type>
+                <studentId>S003</studentId>
+                <enrolledIn>faculty3</enrolledIn>
+            </student>
+        </students>
+
+        <teachers>
+            <teacher id="teacher3">
+                <givenName xml:lang="en">Vojtech</givenName>
+                <familyName xml:lang="en">Mraz</familyName>
+                <type>Teacher</type>
+                <teacherId>T003</teacherId>
+                <teachesAt>faculty3</teachesAt>
+            </teacher>
+        </teachers>
+
+        <researchProjects>
+            <researchProject id="researchProject3">
+                <type>ResearchProject</type>
+                <projectTitle xml:lang="en">Sustainable Engineering</projectTitle>
+                <projectDescription xml:lang="en">Research on sustainable engineering practices</projectDescription>
+                <leads>faculty3</leads>
+            </researchProject>
+        </researchProjects>
     </university>
-
-    <faculties>
-        <faculty id="faculty1">
-            <type>Faculty</type>
-            <facultyName xml:lang="en">MFF</facultyName>
-            <numberOfFacultyStudents>2000</numberOfFacultyStudents>
-            <numberOfFacultyTeachers>100</numberOfFacultyTeachers>
-            <facultyOf>uni1</facultyOf>
-        </faculty>
-        <faculty id="faculty2">
-            <type>Faculty</type>
-            <facultyName xml:lang="en">Faculty of History</facultyName>
-            <numberOfFacultyStudents>1500</numberOfFacultyStudents>
-            <numberOfFacultyTeachers>75</numberOfFacultyTeachers>
-            <facultyOf>uni2</facultyOf>
-        </faculty>
-        <faculty id="faculty3">
-            <type>Faculty</type>
-            <facultyName xml:lang="en">Faculty of Engineering</facultyName>
-            <numberOfFacultyStudents>1800</numberOfFacultyStudents>
-            <numberOfFacultyTeachers>90</numberOfFacultyTeachers>
-            <facultyOf>uni3</facultyOf>
-        </faculty>
-    </faculties>
-
-    <canteens>
-        <canteen id="canteen1">
-            <type>Canteen</type>
-            <menu xml:lang="en">Pizza, Salad, Soup</menu>
-            <capacity>200</capacity>
-            <belongsTo>faculty1</belongsTo>
-        </canteen>
-
-        <canteen id="canteen2">
-            <type>Canteen</type>
-            <menu xml:lang="en">Sushi, Rice Bowls, Noodles</menu>
-            <capacity>150</capacity>
-            <belongsTo>faculty2</belongsTo>
-        </canteen>
-
-        <canteen id="canteen3">
-            <type>Canteen</type>
-            <menu xml:lang="en">Burgers, Fries, Coffee</menu>
-            <capacity>100</capacity>
-            <belongsTo>faculty3</belongsTo>
-        </canteen>
-    </canteens>
-
-    <students>
-        <student id="student1">
-            <givenName xml:lang="en">Marek</givenName>
-            <familyName xml:lang="en">Most</familyName>
-            <type>Student</type>
-            <studentId>S001</studentId>
-            <enrolledIn>faculty1</enrolledIn>
-        </student>
-        
-        <student id="student2">
-            <givenName xml:lang="en">Petra</givenName>
-            <familyName xml:lang="en">Zima</familyName>
-            <type>Student</type>
-            <studentId>S002</studentId>
-            <enrolledIn>faculty2</enrolledIn>
-        </student>
-        
-        <student id="student3">
-            <givenName xml:lang="en">Andrea</givenName>
-            <familyName xml:lang="en">Misuk</familyName>
-            <type>Student</type>
-            <studentId>S003</studentId>
-            <enrolledIn>faculty3</enrolledIn>
-        </student>
-    </students>
-
-    <teachers>
-        <teacher id="teacher1">
-            <givenName xml:lang="en">Martin</givenName>
-            <familyName xml:lang="en">Jakov</familyName>
-            <type>Teacher</type>
-            <teacherId>T001</teacherId>
-            <teachesAt>faculty1</teachesAt>
-        </teacher>
-        
-        <teacher id="teacher2">
-            <givenName xml:lang="en">Filip</givenName>
-            <familyName xml:lang="en">Cerny</familyName>
-            <type>Teacher</type>
-            <teacherId>T002</teacherId>
-            <teachesAt>faculty2</teachesAt>
-        </teacher>
-
-        <teacher id="teacher3">
-            <givenName xml:lang="en">Vojtech</givenName>
-            <familyName xml:lang="en">Mraz</familyName>
-            <type>Teacher</type>
-            <teacherId>T003</teacherId>
-            <teachesAt>faculty3</teachesAt>
-        </teacher>
-    </teachers>
-
-    <researchProjects>
-        <researchProject id="researchProject1">
-            <type>ResearchProject</type>
-            <projectTitle xml:lang="en">AI for Climate Change</projectTitle>
-            <projectDescription xml:lang="en">Research on AI models for climate action</projectDescription>
-            <leads>faculty1</leads>
-        </researchProject>
-        
-        <researchProject id="researchProject2">
-            <type>ResearchProject</type>
-            <projectTitle xml:lang="en">Art History Analysis</projectTitle>
-            <projectDescription xml:lang="en">Digital tools for art history</projectDescription>
-            <leads>faculty2</leads>
-        </researchProject>
-        
-        <researchProject id="researchProject3">
-            <type>ResearchProject</type>
-            <projectTitle xml:lang="en">Sustainable Engineering</projectTitle>
-            <projectDescription xml:lang="en">Research on sustainable engineering practices</projectDescription>
-            <leads>faculty3</leads>
-        </researchProject>
-    </researchProjects>
 
 </universities>

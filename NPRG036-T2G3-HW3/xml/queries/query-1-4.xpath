@@ -1,2 +1,2 @@
 (:count number of students across faculties:)
-sum(/universities/faculties/faculty/numberOfFacultyStudents)
+sum(/universities/university/faculties/faculty/numberOfFacultyStudents)
