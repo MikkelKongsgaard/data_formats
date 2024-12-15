@@ -1,0 +1,151 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "type": "object",
+    "properties": {
+      "universities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "@id": { "type": "string" },
+            "@type": { "type": "string" },
+            "universityName": {
+              "type": "object",
+              "properties": {
+                "@value": { "type": "string" },
+                "@language": { "type": "string" }
+              },
+              "required": ["@value"]
+            },
+            "numberOfFaculties": { "type": "integer" },
+            "numberOfTeachers": { "type": "integer" },
+            "email": {
+              "type": "array",
+              "items": { "type": "string"}
+            },
+            "facultyOf": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "@id": { "type": "string" },
+                  "@type": { "type": "string" },
+                  "facultyName": {
+                    "type": "object",
+                    "properties": {
+                      "@value": { "type": "string" },
+                      "@language": { "type": "string" }
+                    },
+                    "required": ["@value"]
+                  },
+                  "numberOfFacultyStudents": { "type": "integer" },
+                  "numberOfFacultyTeachers": { "type": "integer" },
+                  "belongsTo": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@id": { "type": "string" },
+                        "menu": {
+                          "type": "object",
+                          "properties": {
+                            "@value": { "type": "string" },
+                            "@language": { "type": "string" }
+                          },
+                          "required": ["@value"]
+                        },
+                        "capacity": { "type": "integer" }
+                      },
+                      "required": ["@id", "menu", "capacity"]
+                    }
+                  },
+                  "enrolledIn": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@id": { "type": "string" },
+                        "studentId": { "type": "string" },
+                        "givenName": {
+                          "type": "object",
+                          "properties": {
+                            "@value": { "type": "string" },
+                            "@language": { "type": "string" }
+                          },
+                          "required": ["@value"]
+                        },
+                        "familyName": {
+                          "type": "object",
+                          "properties": {
+                            "@value": { "type": "string" },
+                            "@language": { "type": "string" }
+                          },
+                          "required": ["@value"]
+                        }
+                      },
+                      "required": ["studentId", "givenName", "familyName"]
+                    }
+                  },
+                  "teachesAt": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@id": { "type": "string" },
+                        "teacherId": { "type": "string" },
+                        "givenName": {
+                          "type": "object",
+                          "properties": {
+                            "@value": { "type": "string" },
+                            "@language": { "type": "string" }
+                          },
+                          "required": ["@value"]
+                        },
+                        "familyName": {
+                          "type": "object",
+                          "properties": {
+                            "@value": { "type": "string" },
+                            "@language": { "type": "string" }
+                          },
+                          "required": ["@value"]
+                        }
+                      },
+                      "required": ["teacherId", "givenName", "familyName"]
+                    }
+                  },
+                  "leads": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@id": { "type": "string" },
+                        "projectTitle": {
+                          "type": "object",
+                          "properties": {
+                            "@value": { "type": "string" },
+                            "@language": { "type": "string" }
+                          },
+                          "required": ["@value"]
+                        },
+                        "projectDescription": {
+                          "type": "object",
+                          "properties": {
+                            "@value": { "type": "string" },
+                            "@language": { "type": "string" }
+                          },
+                          "required": ["@value"]
+                        }
+                      },
+                      "required": ["projectTitle", "projectDescription"]
+                    }
+                  }
+                },
+                "required": ["facultyName", "numberOfFacultyStudents", "numberOfFacultyTeachers"]
+              }
+            }
+          },
+          "required": ["@id", "universityName", "facultyOf"]
+        }
+      }
+    }
+  }

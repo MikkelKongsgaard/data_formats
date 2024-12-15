@@ -2,12 +2,12 @@ PREFIX ex:  <http://example.org/vocabulary/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 ex:uni3  rdf:type             ex:University;
-        ex:email              <mailto:info@vse.cz> , <mailto:admin@vse.cz>;
         ex:numberOfFaculties  4;
         ex:numberOfTeachers   450;
         ex:universityName     "VSE"@en .
 
 ex:uni2  rdf:type             ex:University;
+        ex:email              <mailto:info@vse.cz> , <mailto:admin@vse.cz>;
         ex:numberOfFaculties  5;
         ex:numberOfTeachers   600;
         ex:universityName     "CVUT"@en .

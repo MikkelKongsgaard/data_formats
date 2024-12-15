@@ -1,1 +1,0 @@
-.["@graph"] | map(select(.["@type"] == "ex:Canteen") | {canteenName: .["@id"], menu, capacity})

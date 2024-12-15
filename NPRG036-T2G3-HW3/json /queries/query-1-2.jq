@@ -1,1 +1,0 @@
-.["@graph"][]| select(.givenName != null) |.givenName.["@value"] + " " +.familyName.["@value"]

@@ -1,0 +1,204 @@
+{
+    "@context": {
+      "ex": "http://example.org/vocabulary/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "universities" : "@graph",
+
+      "facultyOf": {"@reverse":"ex:facultyOf"},
+      "enrolledIn": {"@reverse":"ex:enrolledIn"},
+      "teachesAt": {"@reverse":"ex:teachesAt"},
+      "leads": {"@reverse":"ex:leads"},
+      "belongsTo": {"@reverse":"ex:belongsTo"},
+
+      "universityName": "ex:universityName",
+      "numberOfFaculties": "ex:numberOfFaculties",
+      "numberOfTeachers": "ex:numberOfTeachers",
+      "email": { "@id": "ex:email", "@type": "@id" },
+      
+      "facultyName": "ex:facultyName",
+      "numberOfFacultyStudents": "ex:numberOfFacultyStudents",
+      "numberOfFacultyTeachers": "ex:numberOfFacultyTeachers",
+      
+      
+      
+      "menu": "ex:menu",
+      "capacity": "ex:capacity",
+      
+      
+      "studentId": "ex:studentId",
+      
+      "givenName": "ex:givenName",
+      "familyName": "ex:familyName",
+      "teacherId": "ex:teacherId",
+      
+      
+      "projectTitle": "ex:projectTitle",
+      "projectDescription": "ex:projectDescription"
+     
+    },
+    
+        "universities": [
+          {
+            "@id": "ex:uni1",
+            "@type": "ex:University",
+            "universityName": {"@value": "CUNI", "@language": "en"},
+            "numberOfFaculties": 3,
+            "numberOfTeachers": 500,
+            "email": ["mailto:info@cuni.edu", "mailto:admissions@cuni.edu"],
+            "facultyOf": [
+              {
+                "@id": "ex:faculty1",
+                "@type": "ex:Faculty",
+                "facultyName": {"@value": "MFF", "@language": "en"},
+                "numberOfFacultyStudents": 2000,
+                "numberOfFacultyTeachers": 100,
+                "belongsTo": [
+                  {
+                    "@id": "ex:canteen1",
+                    "@type": "ex:Canteen",
+                    "menu": {"@value": "Pizza, Salad, Soup", "@language": "en"},
+                    "capacity": 200
+                  }
+                ],
+                "enrolledIn": [
+                  {
+                    "@id": "ex:student1",
+                    "@type" : "ex:Student",
+                    "studentId": "S001",
+                    "givenName": {"@value": "Marek", "@language": "en"},
+                    "familyName": {"@value": "Most", "@language": "en"}
+                  }
+                ],
+                "teachesAt": [
+                  {
+                    "@id": "ex:teacher1",
+                    "@type": "ex:Teacher",
+                    "teacherId": "T001",
+                    "givenName": {"@value": "Martin", "@language": "en"},
+                    "familyName": {"@value": "Jakov", "@language": "en"}
+                    
+                  }
+                ],
+                "leads": [
+                    {
+                    "@id": "ex:researchProject1",
+                    "@type": "ex:ResearchProject",
+                    "projectTitle": {"@value": "AI for Climate", "@language": "en"},
+                    "projectDescription": {"@value": "Research on AI models for climate action", "@language": "en"}
+                    
+                    }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "ex:uni2",
+            "@type": "ex:University",
+            "universityName": {"@value": "CVUT", "@language": "en"},
+            "numberOfFaculties": 5,
+            "numberOfTeachers": 600,
+            "email" : ["mailto:admin@vse.cz","mailto:info@vse.cz"],
+            "facultyOf": [
+              {
+                "@id": "ex:faculty2",
+                "@type": "ex:Faculty",
+                "facultyName": {"@value": "Faculty of History", "@language": "en"},
+                "numberOfFacultyStudents": 1500,
+                "numberOfFacultyTeachers": 75,
+                "belongsTo": [
+                  {
+                    "@id": "ex:canteen2",
+                    "@type": "ex:Canteen",
+                    "menu": {"@value": "Sushi, Rice Bowls, Noodles", "@language": "en"},
+                    "capacity": 150
+                  }
+                ],
+                "enrolledIn": [
+                  {
+                    "@id": "ex:student2",
+                    "@type" : "ex:Student",
+                    "studentId": "S002",
+                    "givenName": {"@value": "Petra", "@language": "en"},
+                    "familyName": {"@value": "Zima", "@language": "en"}
+                  }
+                ],
+                "teachesAt": [
+                  {
+                    "@id": "ex:teacher2",
+                    "@type": "ex:Teacher",
+                    "teacherId": "T002",
+                    "givenName": {"@value": "Filip", "@language": "en"},
+                    "familyName": {"@value": "Cerny", "@language": "en"}
+                    
+                  }
+                ],
+                "leads": [
+                    {
+                    "@id": "ex:researchProject2",
+                    "@type": "ex:ResearchProject",
+                    "projectTitle": {"@value": "Art History Analysis", "@language": "en"},
+                    "projectDescription" : {"@value": "Digital tools for art history", "@language": "en"}
+                    }
+                ]
+              }
+            ]
+          },
+          {
+            "@id": "ex:uni3",
+            "@type": "ex:University",
+            "universityName": {"@value": "VSE", "@language": "en"},
+            "numberOfFaculties": 4,
+            "numberOfTeachers": 450,
+            "facultyOf": [
+              {
+                "@id": "ex:faculty3",
+                "@type": "ex:Faculty",
+                "facultyName": {"@value": "Faculty of Engineering", "@language": "en"},
+                "numberOfFacultyStudents": 1800,
+                "numberOfFacultyTeachers": 90,
+                "belongsTo": [
+                  {
+                    "@id": "ex:canteen3",
+                    "@type": "ex:Canteen",
+                    "menu": {"@value": "Burgers, Fries, Coffee", "@language": "en"},
+                    "capacity": 100
+                  }
+                ],
+                "enrolledIn": [
+                  {
+                    "@id": "ex:student3",
+                    "@type" : "ex:Student",
+                    "studentId": "S003",
+                    "givenName": {"@value": "Andrea", "@language": "en"},
+                    "familyName": {"@value": "Misuk", "@language": "en"}
+                  }
+                ],
+                "teachesAt": [
+                  {
+                    "@id": "ex:teacher3",
+                    "@type": "ex:Teacher",
+                    "teacherId": "T003",
+                    "givenName": {"@value": "Vojtech", "@language": "en"},
+                    "familyName": {"@value": "Mraz", "@language": "en"}
+                    
+                  }
+                ],
+                "leads": [
+                    {
+                    "@id": "ex:researchProject3",
+                    "@type": "ex:ResearchProject",
+                    "projectTitle": {"@value": "Sustainable Engineering", "@language": "en"},
+                    "projectDescription": {"@value": "Research on sustainable engineering practices", "@language": "en"}
+                    
+                    }
+                ]
+              }
+            ]
+          }
+          
+        ]
+      }
+
+      
+
+  
