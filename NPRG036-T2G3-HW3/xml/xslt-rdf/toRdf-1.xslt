@@ -19,7 +19,7 @@
     <!-- Universities -->
     <xsl:template match="university">
         ex:<xsl:value-of select="@id"/> a ex:University ;
-            ex:universityName "<xsl:value-of select="universityName"/>"@en ;
+            ex:universityName "<xsl:value-of select="universityName"/>"@<xsl:value-of select="universityName/@xml:lang"/> ;
             ex:numberOfFaculties <xsl:value-of select="numberOfFaculties"/> ;
             ex:numberOfTeachers <xsl:value-of select="numberOfTeachers"/> 
             <xsl:if test="emails/email"> ; <xsl:for-each select="emails/email">    
@@ -38,7 +38,7 @@
     <!-- Faculties -->
     <xsl:template match="faculty">
         ex:<xsl:value-of select="@id"/> a ex:Faculty ;
-            ex:facultyName "<xsl:value-of select="facultyName"/>"@en ;
+            ex:facultyName "<xsl:value-of select="facultyName"/>"@<xsl:value-of select="facultyName/@xml:lang"/> ;
             ex:numberOfFacultyStudents <xsl:value-of select="numberOfFacultyStudents"/> ;
             ex:numberOfFacultyTeachers <xsl:value-of select="numberOfFacultyTeachers"/> ;
             ex:facultyOf ex:<xsl:value-of select="facultyOf"/> .
@@ -48,7 +48,7 @@
     <!-- Canteens -->
     <xsl:template match="canteen">
         ex:<xsl:value-of select="@id"/> a ex:Canteen ;
-            ex:menu "<xsl:value-of select="menu"/>"@en ;
+            ex:menu "<xsl:value-of select="menu"/>"@<xsl:value-of select="menu/@xml:lang"/> ;
             ex:capacity <xsl:value-of select="capacity"/> ;
             ex:belongsTo ex:<xsl:value-of select="belongsTo"/> .
         <xsl:text>&#10;</xsl:text>
@@ -59,8 +59,8 @@
         ex:<xsl:value-of select="@id"/> a ex:Student ;
             ex:studentId "<xsl:value-of select="studentId"/>" ;
             ex:enrolledIn ex:<xsl:value-of select="enrolledIn"/> ;
-            ex:givenName "<xsl:value-of select="givenName"/>"@en ;
-            ex:familyName "<xsl:value-of select="familyName"/>"@en .
+            ex:givenName "<xsl:value-of select="givenName"/>"@<xsl:value-of select="givenName/@xml:lang"/> ;
+            ex:familyName "<xsl:value-of select="familyName"/>"@<xsl:value-of select="familyName/@xml:lang"/> .
         <xsl:text>&#10;</xsl:text>
     </xsl:template>
 
@@ -69,16 +69,16 @@
         ex:<xsl:value-of select="@id"/> a ex:Teacher ;
             ex:teacherId "<xsl:value-of select="teacherId"/>" ;
             ex:teachesAt ex:<xsl:value-of select="teachesAt"/> ;
-            ex:givenName "<xsl:value-of select="givenName"/>"@en ;
-            ex:familyName "<xsl:value-of select="familyName"/>"@en .
+            ex:givenName "<xsl:value-of select="givenName"/>"@<xsl:value-of select="givenName/@xml:lang"/> ;
+            ex:familyName "<xsl:value-of select="familyName"/>"@<xsl:value-of select="givenName/@xml:lang"/> .
         <xsl:text>&#10;</xsl:text>
     </xsl:template>
 
     <!-- Research Projects -->
     <xsl:template match="researchProject">
         ex:<xsl:value-of select="@id"/> a ex:ResearchProject ;
-            ex:projectTitle "<xsl:value-of select="projectTitle"/>"@en ;
-            ex:projectDescription "<xsl:value-of select="projectDescription"/>"@en ;
+            ex:projectTitle "<xsl:value-of select="projectTitle"/>"@<xsl:value-of select="projectTitle/@xml:lang"/> ;
+            ex:projectDescription "<xsl:value-of select="projectDescription"/>"@<xsl:value-of select="projectDescription/@xml:lang"/> ;
             ex:leads ex:<xsl:value-of select="leads"/> .
         <xsl:text>&#10;</xsl:text>
     </xsl:template>
