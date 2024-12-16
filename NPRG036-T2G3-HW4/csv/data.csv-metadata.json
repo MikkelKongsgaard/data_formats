@@ -73,7 +73,7 @@
           {
             "@type": "Column",
             "name": "name",
-            "titles": "Name",
+            "titles": "name",
             "dc:description": "The name of the faculty",
             "required": true,
             "datatype": "string",
@@ -83,7 +83,7 @@
           {
             "@type": "Column",
             "name": "number_of_students",
-            "titles": "Number of Students",
+            "titles": "number_of_students",
             "dc:description": "The number of students in the faculty",
             "required": true,
             "datatype": "integer",
@@ -92,7 +92,7 @@
           {
             "@type": "Column",
             "name": "number_of_teachers",
-            "titles": "Number of Teachers",
+            "titles": "number_of_teachers",
             "dc:description": "The number of teachers in the faculty",
             "required": true,
             "datatype": "integer",
@@ -115,7 +115,6 @@
             "suppressOutput": true,
             "dc:description": "The ID of the faculty",
             "required": true,
-            "virtual": true,
             "datatype": "string",
             "propertyUrl": "http://example.org/vocabulary/facultyID"
           },
@@ -159,7 +158,7 @@
           {
             "@type": "Column",
             "name": "menu",
-            "titles": "Menu",
+            "titles": "menu",
             "dc:description": "The menu served in the canteen",
             "required": true,
             "datatype": "string",
@@ -169,7 +168,7 @@
           {
             "@type": "Column",
             "name": "capacity",
-            "titles": "Capacity",
+            "titles": "capacity",
             "dc:description": "The seating capacity of the canteen",
             "required": true,
             "datatype": "integer",
@@ -310,7 +309,7 @@
           {
             "@type": "Column",
             "name": "givenName",
-            "titles": "Given Name",
+            "titles": "givenName",
             "dc:description": "The given name of the teacher",
             "required": true,
             "datatype": "string",
@@ -320,7 +319,7 @@
           {
             "@type": "Column",
             "name": "familyName",
-            "titles": "Family Name",
+            "titles": "familyName",
             "dc:description": "The family name of the teacher",
             "required": true,
             "datatype": "string",
@@ -376,7 +375,7 @@
           {
             "@type": "Column",
             "name": "givenName",
-            "titles": "Given Name",
+            "titles": "givenName",
             "dc:description": "The given name of the student",
             "required": true,
             "datatype": "string",
@@ -386,7 +385,7 @@
           {
             "@type": "Column",
             "name": "familyName",
-            "titles": "Family Name",
+            "titles": "familyName",
             "dc:description": "The family name of the student",
             "required": true,
             "datatype": "string",
@@ -423,7 +422,7 @@
           {
             "@type": "Column",
             "name": "email",
-            "titles": "Email",
+            "titles": "email",
             "dc:description": "Email addresses associated with universities",
             "required": true,
             "datatype": "string",
@@ -433,7 +432,7 @@
           {
             "@type": "Column",
             "name": "UniversityID",
-            "titles": "University ID",
+            "titles": "UniversityID",
             "dc:description": "ID of the university",
             "required": true,
             "suppressOutput": true,
